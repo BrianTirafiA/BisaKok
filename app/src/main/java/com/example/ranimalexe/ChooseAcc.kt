@@ -1,6 +1,8 @@
 package com.example.ranimalexe
 
 import android.os.Bundle
+import android.content.Intent
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +18,12 @@ class ChooseAcc : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val SignUpbutton = findViewById<Button>(R.id.SignUpbutton)
+        SignUpbutton.setOnClickListener {
+            val intent = Intent(this, SignUp::class.java)
+            startActivity(intent)
+        }
+
     }
 }
