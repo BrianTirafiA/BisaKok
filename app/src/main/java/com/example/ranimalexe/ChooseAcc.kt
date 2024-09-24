@@ -3,6 +3,7 @@ package com.example.ranimalexe
 import android.os.Bundle
 import android.content.Intent
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,6 +23,12 @@ class ChooseAcc : AppCompatActivity() {
         val SignUpbutton = findViewById<Button>(R.id.SignUpbutton)
         SignUpbutton.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)
+            startActivity(intent)
+        }
+
+        val loginButton = findViewById<ImageButton>(R.id.Loginsignbutton)
+        loginButton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 

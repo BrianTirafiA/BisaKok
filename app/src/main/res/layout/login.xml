@@ -48,6 +48,7 @@
             app:layout_constraintTop_toBottomOf="@+id/infoButton" />
 
         <ImageView
+            android:id="@+id/imageView"
             android:layout_width="411dp"
             android:layout_height="525dp"
             android:layout_marginTop="208dp"
@@ -61,30 +62,31 @@
             android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-81dp"
+            android:layout_marginTop="80dp"
             android:gravity="center"
             android:text="Login"
             android:textColor="#c2bdfb"
             android:textSize="45sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/animalImage" />
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/emailtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="205dp"
-            android:layout_marginBottom="4dp"
             android:gravity="center"
             android:text="Email Address"
             android:textColor="#a19ffc"
             android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/EmailBox"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/googleButton" />
 
         <EditText
             android:id="@+id/EmailBox"
@@ -93,7 +95,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="471dp" />
+            app:layout_constraintTop_toBottomOf="@+id/emailtext" />
 
         <ImageButton
             android:id="@+id/googleButton"
@@ -102,8 +104,8 @@
             android:backgroundTint="#a19ffc"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_rawgoo"
-            tools:layout_editor_absoluteX="150dp"
-            tools:layout_editor_absoluteY="396dp" />
+            app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+            tools:layout_editor_absoluteX="150dp" />
 
         <ImageButton
             android:id="@+id/facebookButton"
@@ -112,14 +114,13 @@
             android:backgroundTint="#a19ffc"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_rawface"
-            tools:layout_editor_absoluteX="212dp"
-            tools:layout_editor_absoluteY="396dp" />
+            app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+            tools:layout_editor_absoluteX="212dp" />
 
         <TextView
             android:id="@+id/passtexta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="235dp"
             android:gravity="center"
             android:text="Password"
@@ -127,7 +128,10 @@
             android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/PassBox"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EmailBox"
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/PassBox"
@@ -139,7 +143,7 @@
             app:layout_constraintTop_toBottomOf="@id/EmailBox" />
 
         <Button
-            android:id="@+id/MakeAccButton"
+            android:id="@+id/loginButton"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
