@@ -28,7 +28,7 @@ class ChooseAcc : AppCompatActivity() {
 
         val loginButton = findViewById<ImageButton>(R.id.Loginsignbutton)
         loginButton.setOnClickListener {
-            val intent = Intent(this, RunningActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 

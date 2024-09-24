@@ -19,10 +19,10 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-//        val getStartedButton = findViewById<Button>(R.id.loginButton)
-//        getStartedButton.setOnClickListener {
-//            val intent = Intent(this, ChooseAcc::class.java)
-//            startActivity(intent)
-//        }
+        val loginButton = findViewById<Button>(R.id.LoginButton)
+        loginButton.setOnClickListener {
+            val intent = Intent(this, RunningActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
