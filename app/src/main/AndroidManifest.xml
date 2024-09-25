@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RanimalEXE"
         tools:targetApi="31">
+        <service
+            android:name=".Services.TrackerService"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".ChooseAcc"
             android:exported="true" />
@@ -24,7 +32,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -35,8 +42,5 @@
             android:name=".RunningActivity"
             android:exported="true" />
     </application>
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 </manifest>

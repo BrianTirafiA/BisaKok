@@ -11,6 +11,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.ranimalexe.Services.TrackerService
 
 private const val LOCATION_PERMISSION_REQUEST_CODE = 1
 
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ChooseAcc::class.java)
             startActivity(intent)
         }
+
+        val intent = Intent(this, TrackerService::class.java)
+        println("Activating service")
+        startService(intent)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
