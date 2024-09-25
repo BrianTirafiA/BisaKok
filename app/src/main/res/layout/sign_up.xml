@@ -65,8 +65,8 @@
         android:textStyle="bold"
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toTopOf="@id/whiteback"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback" />
 
     <TextView
         android:id="@+id/usertext"
@@ -79,8 +79,8 @@
         android:gravity="center"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/UsernameBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback" />
 
     <TextView
         android:id="@+id/Agetext"
@@ -93,8 +93,8 @@
         android:gravity="center"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/AgeBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback" />
 
     <EditText
         android:id="@+id/UsernameBox"
@@ -103,8 +103,8 @@
         android:layout_marginEnd="80dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@id/emailtext"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback"/>
 
     <EditText
         android:id="@+id/AgeBox"
@@ -113,8 +113,8 @@
         android:layout_marginStart="240dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@id/emailtext"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback"/>
 
     <TextView
         android:id="@+id/emailtext"
@@ -127,8 +127,8 @@
         android:gravity="center"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/EmailBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback" />
 
     <EditText
         android:id="@+id/EmailBox"
@@ -136,8 +136,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@id/passtexta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback"/>
 
     <TextView
         android:id="@+id/passtexta"
@@ -150,8 +150,8 @@
         android:gravity="center"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/PassBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback" />
 
     <EditText
         android:id="@+id/PassBox"
@@ -159,8 +159,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@id/checkpolicy"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback"/>
 
     <CheckBox
         android:id="@+id/checkpolicy"
@@ -169,8 +169,8 @@
         android:layout_marginEnd="255dp"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@id/MakeAccButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback"/>
 
     <TextView
         android:id="@+id/policytext"
@@ -183,8 +183,8 @@
         android:gravity="center"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@id/MakeAccButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback" />
 
     <Button
         android:id="@+id/MakeAccButton"
@@ -199,8 +199,8 @@
         android:layout_marginBottom="16dp"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
