@@ -73,28 +73,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/animalImage" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/GoogleButton"
             android:layout_width="80dp"
             android:layout_height="60dp"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:backgroundTint="#a19ffc"
-            android:src="@drawable/ic_rawgoo"
+            android:src="@drawable/ic_google"
             android:layout_marginBottom="10dp"
             android:layout_marginEnd="100dp"
+            android:clickable="true"
+            android:focusable="true"
             app:layout_constraintBottom_toTopOf="@+id/emailtext"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/FacebookButton"
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:scaleType="fitCenter"
             android:backgroundTint="#a19ffc"
-            android:src="@drawable/ic_rawface"
+            android:src="@drawable/ic_face"
             android:layout_marginBottom="10dp"
             android:layout_marginStart="100dp"
+            android:clickable="true"
+            android:focusable="true"
             app:layout_constraintBottom_toTopOf="@+id/emailtext"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

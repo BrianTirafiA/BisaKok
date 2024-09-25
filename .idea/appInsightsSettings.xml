@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.ranimalexe" />
+                  <option name="mobileSdkAppId" value="1:621155821354:android:a9ab935bcb7376f4206053" />
+                  <option name="projectId" value="sign-ranimal" />
+                  <option name="projectNumber" value="621155821354" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
