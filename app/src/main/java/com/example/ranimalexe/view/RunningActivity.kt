@@ -1,4 +1,4 @@
-package com.example.ranimalexe
+package com.example.ranimalexe.view
 
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.example.ranimalexe.R
 
 //import kotlinx.android.synthetic.main.bottom_navbar.*
 

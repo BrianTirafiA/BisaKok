@@ -11,7 +11,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.ranimalexe.Services.TrackerService
+import com.example.ranimalexe.model.TrackerService
+import com.example.ranimalexe.view.ChooseAcc
 
 private const val LOCATION_PERMISSION_REQUEST_CODE = 1
 

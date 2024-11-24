@@ -17,15 +17,15 @@
         android:theme="@style/Theme.RanimalEXE"
         tools:targetApi="31">
         <service
-            android:name=".Services.TrackerService"
+            android:name=".model.TrackerService"
             android:enabled="true"
             android:exported="true"></service>
 
         <activity
-            android:name=".ChooseAcc"
+            android:name=".view.ChooseAcc"
             android:exported="true" />
         <activity
-            android:name=".SignUp"
+            android:name=".view.SignUp"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
@@ -37,10 +37,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".RunningActivity"
+            android:name=".view.RunningActivity"
             android:exported="true" />
     </application>
 

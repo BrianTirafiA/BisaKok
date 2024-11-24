@@ -1,8 +1,6 @@
-package com.example.ranimalexe.Services
+package com.example.ranimalexe.model
 
-import android.app.ActivityManager
 import android.app.Service
-import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import java.util.Timer
