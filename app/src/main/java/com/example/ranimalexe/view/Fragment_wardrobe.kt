@@ -5,8 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.ranimalexe.Constants
 import com.example.ranimalexe.R
+import com.example.ranimalexe.view.adapter.WardrobeAdapter
+import com.example.ranimalexe.viewmodel.WardrobeViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +25,9 @@ class fragment_wardrobe : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var wardrobeAdapter: WardrobeAdapter
+    private lateinit var wardrobeViewModel: WardrobeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +41,21 @@ class fragment_wardrobe : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_wardrobe, container, false)
+        val binding = inflater.inflate(R.layout.fragment_wardrobe, container, false)
+
+        recyclerView = binding.findViewById(R.id.recyclerView)
+
+        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        recyclerView.setItemViewCacheSize(10)
+
+        wardrobeViewModel = ViewModelProvider(this).get(WardrobeViewModel::class.java)
+
+        wardrobeViewModel.cosmeticList.observe(viewLifecycleOwner, { wardrobeItems ->
+            wardrobeAdapter = WardrobeAdapter(wardrobeItems)
+            recyclerView.adapter = wardrobeAdapter
+        })
+
+        return binding
     }
 
     companion object {
