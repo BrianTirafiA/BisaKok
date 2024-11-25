@@ -5,8 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.ranimalexe.R
 import com.example.ranimalexe.Constants
+import com.example.ranimalexe.view.adapter.EventAdapter
+import com.example.ranimalexe.viewmodel.EventViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +25,11 @@ class fragment_event : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var eventAdapter: EventAdapter
+    private lateinit var eventViewModel: EventViewModel
+    private lateinit var completedView: View
+    private lateinit var remainingView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +43,18 @@ class fragment_event : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event, container, false)
+        val binding = inflater.inflate(R.layout.fragment_event, container, false)
+
+        recyclerView = binding.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        eventViewModel = ViewModelProvider(this).get(EventViewModel::class.java)
+
+        eventViewModel.taskList.observe(viewLifecycleOwner) { eventItems ->
+            eventAdapter = EventAdapter(eventItems)
+            recyclerView.adapter = eventAdapter
+        }
+
+        return binding
     }
 
     companion object {
