@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "621155821354",
+    "project_id": "sign-ranimal",
+    "storage_bucket": "sign-ranimal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621155821354:android:a9ab935bcb7376f4206053",
+        "android_client_info": {
+          "package_name": "com.example.ranimalexe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2a5oqsqGDoHvLeK4qhxYdNBVRlY6I5rc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
