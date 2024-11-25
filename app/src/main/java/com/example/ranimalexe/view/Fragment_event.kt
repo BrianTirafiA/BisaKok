@@ -28,8 +28,6 @@ class fragment_event : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var eventAdapter: EventAdapter
     private lateinit var eventViewModel: EventViewModel
-    private lateinit var completedView: View
-    private lateinit var remainingView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

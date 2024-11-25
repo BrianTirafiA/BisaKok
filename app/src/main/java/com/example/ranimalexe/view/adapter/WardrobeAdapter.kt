@@ -13,11 +13,11 @@ class WardrobeAdapter(private val wardrobeItemList: List<WardrobeItem>) : Recycl
     inner class WardrobeItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val itemName: TextView = itemView.findViewById(R.id.itemName)
         private val itemImage: ImageView = itemView.findViewById(R.id.itemImage)
-        private val Desc: TextView = itemView.findViewById(R.id.Desc)
+        private val desc: TextView = itemView.findViewById(R.id.Desc)
 
         fun bind(wardrobeItem: WardrobeItem) {
             itemName.text = wardrobeItem.name
-            Desc.text = wardrobeItem.desc
+            desc.text = wardrobeItem.desc
             itemImage.setImageResource(wardrobeItem.imageResId)
         }
     }

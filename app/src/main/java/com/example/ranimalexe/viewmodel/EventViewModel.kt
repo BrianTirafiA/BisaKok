@@ -29,11 +29,9 @@ class EventViewModel : ViewModel() {
         )
     }
 
-    // Calculate progress based on the completion percentages of all tasks
     private fun calculateProgress() {
         val tasks = _taskList.value ?: emptyList()
 
-        // Calculate the average completion percentage
         if (tasks.isNotEmpty()) {
             val totalCompletion = tasks.sumOf { it.completion }
             val averageCompletion = totalCompletion / tasks.size
@@ -48,17 +46,16 @@ class EventViewModel : ViewModel() {
         }
     }
 
-    // Recalculate progress when a task is updated
-    fun updateTaskCompletion(taskId: Int, newCompletion: Int) {
-        val updatedTasks = _taskList.value?.map { task ->
-            if (task.id == taskId) {
-                task.copy(completion = newCompletion)
-            } else {
-                task
-            }
-        } ?: emptyList()
-
-        _taskList.value = updatedTasks
-        calculateProgress() // Recalculate progress
-    }
+//    fun updateTaskCompletion(taskId: Int, newCompletion: Int) {
+//        val updatedTasks = _taskList.value?.map { task ->
+//            if (task.id == taskId) {
+//                task.copy(completion = newCompletion)
+//            } else {
+//                task
+//            }
+//        } ?: emptyList()
+//
+//        _taskList.value = updatedTasks
+//        calculateProgress()
+//    }
 }

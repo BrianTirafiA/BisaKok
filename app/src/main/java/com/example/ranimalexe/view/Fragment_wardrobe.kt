@@ -46,14 +46,13 @@ class fragment_wardrobe : Fragment() {
         recyclerView = binding.findViewById(R.id.recyclerView)
 
         recyclerView.layoutManager = GridLayoutManager(context, 2)
-        recyclerView.setItemViewCacheSize(10)
 
         wardrobeViewModel = ViewModelProvider(this).get(WardrobeViewModel::class.java)
 
-        wardrobeViewModel.cosmeticList.observe(viewLifecycleOwner, { wardrobeItems ->
+        wardrobeViewModel.cosmeticList.observe(viewLifecycleOwner) { wardrobeItems ->
             wardrobeAdapter = WardrobeAdapter(wardrobeItems)
             recyclerView.adapter = wardrobeAdapter
-        })
+        }
 
         return binding
     }
