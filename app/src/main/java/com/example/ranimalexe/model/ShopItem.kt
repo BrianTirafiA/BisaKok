@@ -1,10 +1,13 @@
 package com.example.ranimalexe.model
 
 data class ShopItem(
-    val id: String,
-    val itemId : String,
-    val price: Int,
-    val itemType: ItemType
+    var id: String,
+    var itemId : String,
+    var price: Int,
+    var itemType: ItemType,
+
+    var name : String,
+    var imageResId : Int
 )
 
 enum class ItemType{
