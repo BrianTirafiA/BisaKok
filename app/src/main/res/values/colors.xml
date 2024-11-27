@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="PastelPurple">#B5B9FF</color>
+    <color name="commonColor">#D9D9D9</color>
+    <color name="uncommonColor">#8BC0A2</color>
+    <color name="legendaryColor">#FFB787</color>
+</resources>
