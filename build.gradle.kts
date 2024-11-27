@@ -11,6 +11,7 @@ buildscript {
     }
     dependencies {
         // Plugin yang diperlukan untuk Firebase dan Google Services
+
     }
 }
 //
