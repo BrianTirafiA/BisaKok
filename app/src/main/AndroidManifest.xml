@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,9 +18,14 @@
         android:theme="@style/Theme.RanimalEXE"
         tools:targetApi="31">
         <service
-            android:name=".model.TrackerService"
+            android:name=".service.TrackingService"
+            android:permission="android.permission.ACCESS_FINE_LOCATION"
             android:enabled="true"
             android:exported="true"></service>
+        <service
+            android:name=".model.TrackerService"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity
             android:name=".view.ChooseAcc"
@@ -42,6 +48,13 @@
         <activity
             android:name=".view.RunningActivity"
             android:exported="true" />
+        <receiver
+            android:name=".view.RunningActivity$DistanceReceiver"
+            android:exported="true">>
+            <intent-filter>
+                <action android:name="com.example.ranimalexe.UPDATE_DISTANCE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
