@@ -48,12 +48,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        lifecycleScope.launch {
-            val items = ItemAPI().GetShopItems()
-            for (item in items){
-                Log.d("Item in SHop", item.id)
-            }
-        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

@@ -1,13 +1,18 @@
 package com.example.ranimalexe.view
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.lifecycleScope
 import com.example.ranimalexe.R
+import com.example.ranimalexe.api.FirestoreAPI
+import com.example.ranimalexe.api.ItemAPI
+import kotlinx.coroutines.launch
 
 //import kotlinx.android.synthetic.main.bottom_navbar.*
 
@@ -45,6 +50,26 @@ class RunningActivity : AppCompatActivity() {
 
         val navHome = findViewById<LinearLayout>(R.id.nav_home)
         navHome.setOnClickListener { loadFragment(fragment_home()) }
+
+        lifecycleScope.launch {
+
+            FirestoreAPI().getDocumentById(
+                "ShopItems",
+                "QXKUSmVZSSlUUlegqjG1",
+                { ds ->
+                    Log.d("Test Log", ds.data.toString())
+                },
+                {
+
+                }
+            )
+
+            Log.d("Test Log", "Bruh")
+            val items = ItemAPI().getShopItems()
+            for (item in items){
+                Log.d("Shop Item", item.id)
+            }
+        }
     }
 
     private fun loadFragment(fragment: Fragment) {
