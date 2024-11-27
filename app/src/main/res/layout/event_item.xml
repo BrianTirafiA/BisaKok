@@ -1,0 +1,90 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:elevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/PastelPurple"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/itemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Item Name"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemName"
+            android:text="Item desc"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:gravity="center_vertical" />
+
+        <LinearLayout
+            android:id="@+id/progressLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/desc"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <!-- Completed Section -->
+            <View
+                android:id="@+id/completedSection"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="50"
+                android:background="@color/legendaryColor" />
+
+            <!-- Remaining Section -->
+            <View
+                android:id="@+id/remainingSection"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="50"
+                android:background="@color/commonColor" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/persen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/progressLayout"
+            app:layout_constraintEnd_toStartOf="@id/progressPercentage"
+            android:layout_marginTop="4dp"
+            android:text="50"
+            android:textSize="14sp"
+            android:textColor="#000000" />
+        <TextView
+            android:id="@+id/progressPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/progressLayout"
+            app:layout_constraintStart_toEndOf="@id/persen"
+            android:layout_marginTop="4dp"
+            android:text="% Completed"
+            android:textSize="14sp"
+            android:textColor="#000000" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

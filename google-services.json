@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "455724528111",
+    "project_id": "ranimal-56c46",
+    "storage_bucket": "ranimal-56c46.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455724528111:android:fe532de0e8d626faea461a",
+        "android_client_info": {
+          "package_name": "com.example.ranimalexe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8elD4mv8S56dR6Dp6vs8cAuLt2oy4iDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
