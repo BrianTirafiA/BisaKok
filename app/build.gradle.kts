@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.ranimalexe"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -54,5 +54,6 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.0")
     implementation("com.google.firebase:firebase-auth:21.1.0")
     implementation("com.google.android.gms:play-services-location:18.0.0") // Atau versi yang lebih baru
-
+    implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+    implementation("com.google.firebase:firebase-firestore")
 }

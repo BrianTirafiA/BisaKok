@@ -21,11 +21,18 @@
             android:name=".service.TrackingService"
             android:permission="android.permission.ACCESS_FINE_LOCATION"
             android:enabled="true"
-            android:exported="true"></service>
-        <service
-            android:name=".model.TrackerService"
-            android:enabled="true"
-            android:exported="true" />
+            android:exported="true"
+            >
+            <intent-filter>
+                <action android:name="com.example.ranimalexe.service.TrackingService" />
+            </intent-filter>
+
+            <!-- Specify the foregroundServiceType as location tracking -->
+            <meta-data
+                android:name="android.service.foregroundServiceType"
+                android:value="location"/>
+        </service>
+
 
         <activity
             android:name=".view.ChooseAcc"
@@ -48,13 +55,7 @@
         <activity
             android:name=".view.RunningActivity"
             android:exported="true" />
-        <receiver
-            android:name=".view.RunningActivity$DistanceReceiver"
-            android:exported="true">>
-            <intent-filter>
-                <action android:name="com.example.ranimalexe.UPDATE_DISTANCE" />
-            </intent-filter>
-        </receiver>
+
     </application>
 
 </manifest>
