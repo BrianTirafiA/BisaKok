@@ -1,8 +1,7 @@
 package com.example.ranimalexe.model
 
-data class ShopItem(
+data class Pet (
     val id: Int,
     val name: String,
-    val imageResId: Int,
-    val price: Int
+    val health: Int,
 )
