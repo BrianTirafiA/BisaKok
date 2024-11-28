@@ -17,7 +17,7 @@ class fragment_home : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_home, container, false)
-        distanceTextView = rootView.findViewById(R.id.TodayExpCount)  // pastikan ada TextView untuk jarak
+//        distanceTextView = rootView.findViewById(R.id.TodayExpCount)  // pastikan ada TextView untuk jarak
         return rootView
     }
 
