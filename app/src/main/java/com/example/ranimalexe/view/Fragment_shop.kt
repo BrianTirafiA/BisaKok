@@ -114,7 +114,14 @@ class fragment_shop : Fragment() {
                 },
                 onUnlockHat = { hatToUnlock ->
                     hatViewModel.unlockHat(hatToUnlock.id)
-                    val message = "Congrats! You got an item:"
+                    val message = "Congrats! You got an item:${hatToUnlock.name}"
+                    val builder = AlertDialog.Builder(requireContext())
+                        .setMessage(message)
+                        .setPositiveButton("OK") { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                    builder.show()
+                    hatViewModel.refreshHats()
                 }
             )
             recyclerViewHat.adapter = hatAdapter
@@ -157,29 +164,39 @@ class fragment_shop : Fragment() {
     }
 
     private fun showResultPopup(degree: Int) {
+        val randomNumber: Int
         val category: String
         val color: Int
 
         when (degree) {
-            in 0..90 -> {
+            in 355..360 -> {
                 category = "Legendary"
                 color = R.color.legendaryColor
+                randomNumber = (29..31).random()
             }
-            in 90..270 -> {
+            in 101..354 -> {
                 category = "Common"
                 color = R.color.commonColor
+                randomNumber = (4..15).random()
             }
-            in 270..360 -> {
+            in 31..100 -> {
                 category = "Uncommon"
                 color = R.color.uncommonColor
+                randomNumber = (16..21).random()
+            }
+            in 0..30 -> {
+                category = "Rare"
+                color = R.color.light_blue_600
+                randomNumber = (22..28).random()
             }
             else -> {
                 category = "Error"
                 color = R.color.white
+                randomNumber = (1..10).random()
             }
         }
 
-        val message = "Congrats! You got a $category item!"
+        val message = "Congrats! You got a $category item number $randomNumber"
         val builder = AlertDialog.Builder(requireContext())
             .setTitle(category)
             .setMessage(message)

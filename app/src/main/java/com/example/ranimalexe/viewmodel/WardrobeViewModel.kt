@@ -7,6 +7,7 @@ import com.example.ranimalexe.R
 import com.example.ranimalexe.model.Hat
 import com.example.ranimalexe.model.PetCustomization
 import com.example.ranimalexe.model.Shell
+
 class HatViewModel : ViewModel() {
     private val _allHats = MutableLiveData<List<Hat>>()
     val allHats: LiveData<List<Hat>> get() = _allHats
@@ -24,8 +25,8 @@ class HatViewModel : ViewModel() {
             Hat(0, "Basic Red", R.drawable.default_hat1, "proof of your birth", true),
             Hat(1, "Basic Blue", R.drawable.default_hat2, "proof of your birth", true),
             Hat(2, "Basic Green", R.drawable.default_hat3, "proof of your birth", true),
-            Hat(3, "Extinct", R.drawable.hdino, "Reborn from meteor", false),
-            Hat(4, "Element 'R'", R.drawable.helred, "COMMON! True nature", true),
+            Hat(3, "Extinct", R.drawable.hdino, "Reborn from meteor", true),
+            Hat(4, "Element 'R'", R.drawable.helred, "COMMON! True nature", false),
             Hat(5, "Element 'B'", R.drawable.helblue, "COMMON! True nature", false),
             Hat(6, "Element 'G'", R.drawable.helgreen, "COMMON! True nature", false),
             Hat(7, "Batik", R.drawable.htikred, "COMMON! 100% Original", false),
@@ -63,6 +64,10 @@ class HatViewModel : ViewModel() {
         _allHats.value = _allHats.value?.map {
             if (it.id == hatId) it.copy(status = true) else it
         }
+    }
+
+    fun refreshHats() {
+        loadCosmetic()  // Update LiveData from the repository
     }
 }
 

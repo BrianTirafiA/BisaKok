@@ -75,8 +75,8 @@ class fragment_wardrobe : Fragment() {
 
         shellViewModel.allShells.observe(viewLifecycleOwner) { shellItems ->
             shellAdapter = ShellAdapter(shellItems) { selectedShell ->
-                petViewModel.updateClothes(selectedShell) // Update the pet's clothes
-                selectedShellImage.setImageResource(selectedShell) // Update selected shell image
+                petViewModel.updateClothes(selectedShell)
+                selectedShellImage.setImageResource(selectedShell)
             }
             recyclerViewShell.adapter = shellAdapter
         }
