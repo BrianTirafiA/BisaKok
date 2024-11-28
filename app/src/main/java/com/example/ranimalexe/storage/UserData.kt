@@ -27,6 +27,7 @@ object UserData {
     private fun TrySpendExp(amount : Int) : Boolean {
         if (amount <= user.currentExp){
             user.currentExp -= amount
+            ModifyExpBy(-amount)
             return true;
         }
         else return false;
@@ -42,7 +43,8 @@ object UserData {
     }
 
     private fun ModifyUserHealth(amount : Float){
-        user.health += amount;
+        user.health = amount.coerceAtMost(100f).coerceAtLeast(0f)
+        Log.d("User Data Log", "Health: " + user.health);
     }
 
     //====================================== User ======================================//
