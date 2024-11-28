@@ -25,9 +25,9 @@ class fragment_event : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var eventAdapter: EventAdapter
-    private lateinit var eventViewModel: EventViewModel
+//    private lateinit var recyclerView: RecyclerView
+//    private lateinit var eventAdapter: EventAdapter
+//    private lateinit var eventViewModel: EventViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,18 +41,8 @@ class fragment_event : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = inflater.inflate(R.layout.fragment_event, container, false)
-
-        recyclerView = binding.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        eventViewModel = ViewModelProvider(this).get(EventViewModel::class.java)
-
-        eventViewModel.taskList.observe(viewLifecycleOwner) { eventItems ->
-            eventAdapter = EventAdapter(eventItems)
-            recyclerView.adapter = eventAdapter
-        }
-
-        return binding
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_event, container, false)
     }
 
     companion object {

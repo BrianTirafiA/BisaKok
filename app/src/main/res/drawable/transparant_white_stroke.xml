@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <!-- Stroke berwarna putih dengan ketebalan 2dp -->
+            <stroke android:color="#FFFFFF" android:width="2dp" />
+            <corners android:radius="18sp"/>
+            <!-- Isi transparan -->
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+</selector>
