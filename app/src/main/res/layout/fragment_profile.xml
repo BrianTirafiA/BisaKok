@@ -410,7 +410,7 @@
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/editProfile"
+                        android:id="@+id/btnEditProfile"
                         style="@style/Widget.Material3.Button.ElevatedButton"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"

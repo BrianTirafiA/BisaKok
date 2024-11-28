@@ -61,7 +61,7 @@ class RunningActivity : AppCompatActivity() {
         // Menyiapkan pemanggilan fragment
         val navProfile = findViewById<LinearLayout>(R.id.nav_profile)
         navProfile.setOnClickListener { loadFragment(fragment_profile()) }
-
+        
         val navEvent = findViewById<LinearLayout>(R.id.nav_event)
         navEvent.setOnClickListener { loadFragment(fragment_event()) }
 
