@@ -1,5 +1,7 @@
 package com.example.ranimalexe.storage
 
+import android.util.Log
+import com.example.ranimalexe.R
 import com.example.ranimalexe.model.*
 
 object UserData {
@@ -8,6 +10,17 @@ object UserData {
     var foodInventory : MutableList<FoodInventoryItem> = mutableListOf();
     var wardrobeInventory : MutableList<WardrobeinventoryItem> = mutableListOf();
     var missionCompletions : MutableList<MissionCompletion> = mutableListOf();
+
+    //====================================== Temporary ======================================//
+    var foodItems : MutableList<FoodItem> = mutableListOf(
+        FoodItem(0, "Apel", 10, 100, R.drawable.borgir),
+        FoodItem(1, "Nanas", 20, 150, R.drawable.borgir),
+        FoodItem(2, "Melon", 30, 250, R.drawable.borgir)
+    )
+    //var wardrobeItems : MutableList<WardrobeItem>
+    //=======================================================================================//
+
+
 
     //====================================== Currency ======================================//
 
@@ -88,19 +101,35 @@ object UserData {
     }
 
     fun TryBuyFood(foodId: Int) : Boolean {
-        var food : FoodItem = FoodItem() //TODO: get food from room db
+
+        var food : FoodItem? = foodItems.find { foodId == it.id }
+
+        Log.d("User Data Log", "Buying $foodId priced ${food?.price} with EXP: ${user.currentExp}");
+
+        if (food == null){
+            Log.d("User Data Log", "Buying $foodId null");
+            return false;
+        }
+
         if (TrySpendExp(food.price)){
             IncrementFoodItemAmount(foodId);
+            Log.d("User Data Log", "Buying $foodId success");
             return true;
         }
+        Log.d("User Data Log", "Buying $foodId failed");
         return false;
     }
 
     fun TryEatFood(foodId : Int) : Boolean {
-        var food : FoodItem = FoodItem() //TODO: get food from room db
-        for (item in foodInventory){
-            if (item.foodId == foodId){
-                item.amount--;
+        var food : FoodItem? = foodItems.find { foodId == it.id }
+
+        if (food == null){
+            return false;
+        }
+
+        for (invItem in foodInventory){
+            if (invItem.foodId == foodId){
+                DecrementFoodItemAmount(invItem.foodId)
                 user.health += food.satiety
                 return true;
             }
@@ -128,4 +157,11 @@ object UserData {
     }
 
     //====================================== Mission ======================================//
+
+    /*
+    fun ModifyMissionCompletionPointBy(missionId : Int, amount : Int){
+        var mission : Mission; //TODO: query mission from room db
+        mission.pointToComplete
+    }
+    */
 }

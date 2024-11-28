@@ -8,13 +8,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ranimalexe.R
+import com.example.ranimalexe.model.FoodItem
 import com.example.ranimalexe.model.Hat
 import com.example.ranimalexe.model.Shell
-import com.example.ranimalexe.model.ShopItem
+import com.example.ranimalexe.storage.UserData
 
 
 class ShopAdapter(
-    private val shopItemList: List<ShopItem>,
+    private val shopItemList: List<FoodItem>,
     private val onClick: (Int) -> Unit
 ) : RecyclerView.Adapter<ShopAdapter.ShopItemViewHolder>() {
     inner class ShopItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -22,11 +23,14 @@ class ShopAdapter(
         private val itemImage: ImageView = itemView.findViewById(R.id.itemImage)
         private val itemPrice: TextView = itemView.findViewById(R.id.itemPrice)
 
-        fun bind(ShopCustom: ShopItem) {
+        fun bind(ShopCustom: FoodItem) {
             itemName.text = ShopCustom.name
             itemImage.setImageResource(ShopCustom.imageResId)
             itemPrice.text = ShopCustom.price.toString()
-            itemView.setOnClickListener { onClick(ShopCustom.imageResId) }
+            itemView.setOnClickListener {
+                UserData.TryBuyFood(ShopCustom.id)
+                onClick(ShopCustom.imageResId)
+            }
         }
     }
 
