@@ -17,7 +17,8 @@ class ShopViewModel : ViewModel() {
     private fun loadFruits() {
         _fruitList.value = listOf(
             ShopItem(1, "Grapes", R.drawable.grape, 50),
-            ShopItem(2, "Peach", R.drawable.apple, 40),
+            ShopItem(
+                2, "Peach", R.drawable.apple, 40),
         )
     }
 }
