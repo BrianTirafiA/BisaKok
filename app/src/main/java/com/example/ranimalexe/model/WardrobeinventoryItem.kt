@@ -4,5 +4,5 @@ data class WardrobeinventoryItem (
     val id: Int,
     val userId: Int,
     val wardrobeId: Int,
-    val equipStatus: Boolean
+    var equipStatus: Boolean
 )

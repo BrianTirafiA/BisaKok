@@ -1,12 +1,18 @@
 package com.example.ranimalexe.model
 
-data class Users (
-    val userId: Int,
-    val username: String,
-    val password: String,
-    val age: Int,
-    val email: String,
-    val totalExp: Int,
-    val totalScore: Int,
-    val currentExp: Int
-    )
+import java.io.Serializable
+
+data class Users(
+    val userId: Int = 0, // Menambahkan default value
+    var username: String = "",
+    var password: String = "",
+    var age: Int = 0,
+    var email: String = "",
+    var totalExp: Int = 0,
+    var totalScore: Int = 0,
+    var currentExp: Int = 0,
+    var health : Float = 100f
+) : Serializable {
+    // Constructor default (tanpa argumen)
+    constructor() : this(0, "", "", 0, "", 0, 0, 0, 100f) // Konstruktor tanpa argumen
+}

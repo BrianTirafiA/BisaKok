@@ -1,7 +1,7 @@
 package com.example.ranimalexe.model
 
 data class Pet (
-    val id: Int,
-    val name: String,
-    val health: Int,
+    val id: Int = 0,
+    val name: String = "",
+    val health: Int = 0,
 )

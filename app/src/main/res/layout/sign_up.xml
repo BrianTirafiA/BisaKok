@@ -223,13 +223,16 @@
         android:text="Pet Name"
         android:textColor="#a19ffc"
         android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/UsernameBox"
-        tools:layout_editor_absoluteX="56dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UsernameBox" />
 
     <EditText
         android:id="@+id/petNameBox"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/emailtext"
         app:layout_constraintEnd_toEndOf="@id/whiteback"
         app:layout_constraintHorizontal_bias="0.293"

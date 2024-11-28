@@ -20,7 +20,7 @@ class EventAdapter(private val missionList: List<Mission>) : RecyclerView.Adapte
         fun bind(mission: Mission) {
             itemName.text = mission.name
             desc.text = mission.desc
-            completion.text = mission.completion.toString()
+            completion.text = mission.pointToComplete.toString()
         }
     }
 
@@ -32,7 +32,7 @@ class EventAdapter(private val missionList: List<Mission>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: EventItemViewHolder, position: Int) {
         val eventItem = missionList[position]
         holder.bind(eventItem)
-        val progressCompleted = eventItem.completion
+        val progressCompleted = eventItem.pointToComplete
         val progressRemaining = 100 - progressCompleted
 
         val completedParams = holder.completedSection.layoutParams as LinearLayout.LayoutParams
