@@ -3,15 +3,13 @@ package com.example.ranimalexe.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ranimalexe.R
-import com.example.ranimalexe.model.EventItem
+import com.example.ranimalexe.model.Mission
 
-class EventAdapter(private val eventItemList: List<EventItem>) : RecyclerView.Adapter<EventAdapter.EventItemViewHolder>() {
+class EventAdapter(private val missionList: List<Mission>) : RecyclerView.Adapter<EventAdapter.EventItemViewHolder>() {
     inner class EventItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val itemName: TextView = itemView.findViewById(R.id.itemName)
         private val desc: TextView = itemView.findViewById(R.id.desc)
@@ -19,10 +17,10 @@ class EventAdapter(private val eventItemList: List<EventItem>) : RecyclerView.Ad
         val completedSection: View = itemView.findViewById(R.id.completedSection)
         val remainingSection: View = itemView.findViewById(R.id.remainingSection)
 
-        fun bind(eventItem: EventItem) {
-            itemName.text = eventItem.name
-            desc.text = eventItem.desc
-            completion.text = eventItem.completion.toString()
+        fun bind(mission: Mission) {
+            itemName.text = mission.name
+            desc.text = mission.desc
+            completion.text = mission.pointToComplete.toString()
         }
     }
 
@@ -32,9 +30,9 @@ class EventAdapter(private val eventItemList: List<EventItem>) : RecyclerView.Ad
     }
 
     override fun onBindViewHolder(holder: EventItemViewHolder, position: Int) {
-        val eventItem = eventItemList[position]
+        val eventItem = missionList[position]
         holder.bind(eventItem)
-        val progressCompleted = eventItem.completion
+        val progressCompleted = eventItem.pointToComplete
         val progressRemaining = 100 - progressCompleted
 
         val completedParams = holder.completedSection.layoutParams as LinearLayout.LayoutParams
@@ -47,5 +45,5 @@ class EventAdapter(private val eventItemList: List<EventItem>) : RecyclerView.Ad
 
     }
 
-    override fun getItemCount(): Int = eventItemList.size
+    override fun getItemCount(): Int = missionList.size
 }

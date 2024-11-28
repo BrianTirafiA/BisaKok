@@ -47,74 +47,80 @@
         android:id="@+id/whiteback"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.65"
-        android:src="@drawable/ic_whiteback"
+        android:layout_marginBottom="4dp"
         android:scaleType="fitXY"
+        android:src="@drawable/ic_whiteback"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.65"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
+        android:layout_marginTop="4dp"
         android:gravity="center"
+        android:text="Sign Up"
         android:textColor="#c2bdfb"
         android:textSize="45sp"
         android:textStyle="bold"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toTopOf="@id/whiteback"
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@id/whiteback"
-        app:layout_constraintEnd_toEndOf="@id/whiteback" />
-
-    <TextView
-        android:id="@+id/usertext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username"
-        android:textColor="#a19ffc"
-        android:layout_marginEnd="233dp"
-        android:textSize="15sp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/UsernameBox"
-        app:layout_constraintStart_toStartOf="@id/whiteback"
-        app:layout_constraintEnd_toEndOf="@id/whiteback" />
+        app:layout_constraintTop_toTopOf="@id/whiteback" />
 
     <TextView
         android:id="@+id/Agetext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:gravity="center"
         android:text="Age"
         android:textColor="#a19ffc"
-        android:layout_marginStart="220dp"
         android:textSize="15sp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/AgeBox"
-        app:layout_constraintStart_toStartOf="@id/whiteback"
-        app:layout_constraintEnd_toEndOf="@id/whiteback" />
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="@id/whiteback" />
 
     <EditText
         android:id="@+id/UsernameBox"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="88dp"
         app:layout_constraintBottom_toTopOf="@id/emailtext"
-        app:layout_constraintStart_toStartOf="@id/whiteback"
-        app:layout_constraintEnd_toEndOf="@id/whiteback"/>
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@id/whiteback" />
+
+    <TextView
+        android:id="@+id/usertext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="233dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="center"
+        android:text="Username"
+        android:textColor="#a19ffc"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/UsernameBox"
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@id/whiteback" />
 
     <EditText
         android:id="@+id/AgeBox"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="240dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="88dp"
         app:layout_constraintBottom_toTopOf="@id/emailtext"
-        app:layout_constraintStart_toStartOf="@id/whiteback"
-        app:layout_constraintEnd_toEndOf="@id/whiteback"/>
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="@id/whiteback" />
 
     <TextView
         android:id="@+id/emailtext"
@@ -153,6 +159,7 @@
         app:layout_constraintStart_toStartOf="@id/whiteback"
         app:layout_constraintEnd_toEndOf="@id/whiteback" />
 <!--    aaa-->
+
     <EditText
         android:id="@+id/PassBox"
         android:layout_width="300dp"
@@ -160,32 +167,35 @@
         android:layout_marginBottom="10dp"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@id/checkpolicy"
-        app:layout_constraintStart_toStartOf="@id/whiteback"
-        app:layout_constraintEnd_toEndOf="@id/whiteback"/>
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@id/whiteback" />
 
     <CheckBox
         android:id="@+id/checkpolicy"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginEnd="255dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@id/MakeAccButton"
-        app:layout_constraintStart_toStartOf="@id/whiteback"
-        app:layout_constraintEnd_toEndOf="@id/whiteback"/>
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
+        app:layout_constraintHorizontal_bias="0.691"
+        app:layout_constraintStart_toStartOf="@id/whiteback" />
 
     <TextView
         android:id="@+id/policytext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:text="I accept the policy and term"
         android:textColor="#a19ffc"
         android:textSize="15sp"
-        android:layout_marginEnd="30dp"
-        android:gravity="center"
-        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@id/MakeAccButton"
-        app:layout_constraintStart_toStartOf="@id/whiteback"
-        app:layout_constraintEnd_toEndOf="@id/whiteback" />
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="@id/whiteback" />
 
     <Button
         android:id="@+id/MakeAccButton"
@@ -203,5 +213,31 @@
         app:layout_constraintStart_toStartOf="@id/whiteback"
         app:layout_constraintEnd_toEndOf="@id/whiteback"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/petNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Pet Name"
+        android:textColor="#a19ffc"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UsernameBox" />
+
+    <EditText
+        android:id="@+id/petNameBox"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/emailtext"
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
+        app:layout_constraintHorizontal_bias="0.293"
+        app:layout_constraintStart_toStartOf="@id/whiteback"
+        app:layout_constraintTop_toBottomOf="@+id/petNameText"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

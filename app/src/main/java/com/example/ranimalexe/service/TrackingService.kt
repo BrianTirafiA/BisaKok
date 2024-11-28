@@ -42,7 +42,7 @@ class TrackingService : Service() {
 
         // Set up location request
         locationRequest = LocationRequest.create().apply {
-            interval = 500 // Update setiap 0.5 detik
+            interval = 5000 // Update setiap 0.5 detik
             fastestInterval = 200 // Interval minimum antara update
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY // Menggunakan akurasi tinggi
         }
@@ -56,12 +56,18 @@ class TrackingService : Service() {
 
                     // Jika previousLocation ada, hitung jaraknya
                     previousLocation?.let { previousLoc ->
-                        distance = previousLoc.distanceTo(currentLocation)
-                        Log.d("Tracker", "Distance: $distance meters") // Menampilkan jarak dalam meter
+                        distance = previousLoc.distanceTo(currentLocation)/1000
+                        if (distance < 0.003){
+                            distance=0.0f;
+                        }
+                        else{
+                            distance=distance;
+                        }
+                        Log.d("Tracker", "Distance: $distance kilometers") // Menampilkan jarak dalam meter
                     }
 
                     totalDistance += distance
-                    Log.d("Tracker", "Total Distance: $totalDistance")
+                    Log.d("Tracker", "Total Distance: $totalDistance kilometers")
                     counter++
                     Log.d("Tracker", "Counter: $counter")
 

@@ -3,11 +3,11 @@ package com.example.ranimalexe.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.ranimalexe.model.EventItem
+import com.example.ranimalexe.model.Mission
 
 class EventViewModel : ViewModel() {
-    private val _taskList = MutableLiveData<List<EventItem>>()
-    val taskList: LiveData<List<EventItem>> get() = _taskList
+    private val _taskList = MutableLiveData<List<Mission>>()
+    val taskList: LiveData<List<Mission>> get() = _taskList
 
     private val _progressCompleted = MutableLiveData<Int>(0)
     val progressCompleted: LiveData<Int> = _progressCompleted
@@ -22,10 +22,10 @@ class EventViewModel : ViewModel() {
 
     private fun loadTasks() {
         _taskList.value = listOf(
-            EventItem(1, "Run of a lifetime", "Run 1000km", 10, false),
-            EventItem(2, "Daily run", "Run 500m", 100, true),
-            EventItem(3, "Daily challenges", "Run 10km", 50, false),
-            EventItem(4, "It's Feeding time", "Feed your pet 3 times", 60, false),
+            Mission(1, "Run of a lifetime", "Run 1000km", 10),
+            Mission(2, "Daily run", "Run 500m", 100),
+            Mission(3, "Daily challenges", "Run 10km", 50),
+            Mission(4, "It's Feeding time", "Feed your pet 3 times", 60),
         )
     }
 
@@ -33,7 +33,7 @@ class EventViewModel : ViewModel() {
         val tasks = _taskList.value ?: emptyList()
 
         if (tasks.isNotEmpty()) {
-            val totalCompletion = tasks.sumOf { it.completion }
+            val totalCompletion = tasks.sumOf { it.pointToComplete }
             val averageCompletion = totalCompletion / tasks.size
 
             // Update progress values

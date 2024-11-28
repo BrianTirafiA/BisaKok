@@ -5,5 +5,5 @@ data class WardrobeItem(
     val name: String,
     val imageResId: Int,
     val desc: String,
-    val status: Boolean
+    val price: Int
 )

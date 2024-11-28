@@ -59,10 +59,10 @@ class fragment_shop : Fragment() {
         spinStatus = binding.findViewById(R.id.spinStatus)
         shopViewModel = ViewModelProvider(this).get(ShopViewModel::class.java)
 
-        shopViewModel.fruitList.observe(viewLifecycleOwner) { shopItems ->
-            shopAdapter = ShopAdapter(shopItems)
-            recyclerView.adapter = shopAdapter
-        }
+//        shopViewModel.fruitList.observe(viewLifecycleOwner) { shopItems ->
+//            shopAdapter = ShopAdapter(shopItems)
+//            recyclerView.adapter = shopAdapter
+//        }
 
         spinButton.setOnClickListener {
             val randomDegree = (2160..2520).random()

@@ -16,10 +16,10 @@ class WardrobeViewModel : ViewModel() {
 
     private fun loadCosmetic() {
         _cosmetic.value = listOf(
-            WardrobeItem(1, "MeteorHead", R.drawable.meteorhead, "Coming for extinction", false),
-            WardrobeItem(2, "Beret", R.drawable.beret, "Honourable soldier", true),
-            WardrobeItem(3, "Cosmic Shell", R.drawable.cometshell, "it radiates cosmic power", false),
-            WardrobeItem(4, "Veteran Shell", R.drawable.milishell, "Ghost of battlefield", true),
+//            WardrobeItem(1, "MeteorHead", R.drawable.meteorhead, "Coming for extinction", false),
+//            WardrobeItem(2, "Beret", R.drawable.beret, "Honourable soldier", true),
+//            WardrobeItem(3, "Cosmic Shell", R.drawable.cometshell, "it radiates cosmic power", false),
+//            WardrobeItem(4, "Veteran Shell", R.drawable.milishell, "Ghost of battlefield", true),
         )
     }
 }

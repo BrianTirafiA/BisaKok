@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.ranimalexe.R
-import com.example.ranimalexe.model.ShopItem
+import com.example.ranimalexe.model.WardrobeItem
 
 class ShopViewModel : ViewModel() {
-    private val _fruitList = MutableLiveData<List<ShopItem>>()
-    val fruitList: LiveData<List<ShopItem>> get() = _fruitList
+    private val _fruitList = MutableLiveData<List<WardrobeItem>>()
+    val fruitList: LiveData<List<WardrobeItem>> get() = _fruitList
 
     init {
         loadFruits()
@@ -16,8 +16,9 @@ class ShopViewModel : ViewModel() {
 
     private fun loadFruits() {
         _fruitList.value = listOf(
-            ShopItem(1, "Grapes", R.drawable.grape, 50),
-            ShopItem(2, "Peach", R.drawable.apple, 40),
+//            WardrobeItem(1, "Grapes", R.drawable.grape, 50),
+//            WardrobeItem(
+//                2, "Peach", R.drawable.apple, 40),
         )
     }
 }
