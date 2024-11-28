@@ -5,13 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ranimalexe.Constants
 import com.example.ranimalexe.R
-import com.example.ranimalexe.view.adapter.WardrobeAdapter
-import com.example.ranimalexe.viewmodel.WardrobeViewModel
+import com.example.ranimalexe.view.adapter.HatAdapter
+import com.example.ranimalexe.view.adapter.ShellAdapter
+import com.example.ranimalexe.viewmodel.HatViewModel
+import com.example.ranimalexe.viewmodel.PetViewModel
+import com.example.ranimalexe.viewmodel.ShellViewModel
+import androidx.fragment.app.activityViewModels
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,9 +32,13 @@ class fragment_wardrobe : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var wardrobeAdapter: WardrobeAdapter
-    private lateinit var wardrobeViewModel: WardrobeViewModel
+    private lateinit var recyclerViewHat: RecyclerView
+    private lateinit var recyclerViewShell: RecyclerView
+    private lateinit var hatAdapter: HatAdapter
+    private lateinit var hatViewModel: HatViewModel
+    private lateinit var shellAdapter: ShellAdapter
+    private lateinit var shellViewModel: ShellViewModel
+    private val petViewModel: PetViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,15 +54,36 @@ class fragment_wardrobe : Fragment() {
     ): View? {
         val binding = inflater.inflate(R.layout.fragment_wardrobe, container, false)
 
-        recyclerView = binding.findViewById(R.id.recyclerView)
+        recyclerViewHat = binding.findViewById(R.id.recyclerViewHat)
+        recyclerViewShell = binding.findViewById(R.id.recyclerViewShell)
+        val selectedShellImage: ImageView = binding.findViewById(R.id.selectedShellImage)
+        val selectedHatImage: ImageView = binding.findViewById(R.id.selectedHatImage)
 
-        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        recyclerViewHat.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewShell.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-        wardrobeViewModel = ViewModelProvider(this).get(WardrobeViewModel::class.java)
+        hatViewModel = ViewModelProvider(this)[HatViewModel::class.java]
+        shellViewModel = ViewModelProvider(this)[ShellViewModel::class.java]
 
-        wardrobeViewModel.cosmeticList.observe(viewLifecycleOwner) { wardrobeItems ->
-            wardrobeAdapter = WardrobeAdapter(wardrobeItems)
-            recyclerView.adapter = wardrobeAdapter
+        hatViewModel.allHats.observe(viewLifecycleOwner) { hatItems ->
+            hatAdapter = HatAdapter(hatItems) { selectedHat ->
+                petViewModel.updateHat(selectedHat) // Update the pet's hat
+                selectedHatImage.setImageResource(selectedHat) // Update selected hat image
+            }
+            recyclerViewHat.adapter = hatAdapter
+        }
+
+        shellViewModel.allShells.observe(viewLifecycleOwner) { shellItems ->
+            shellAdapter = ShellAdapter(shellItems) { selectedShell ->
+                petViewModel.updateClothes(selectedShell) // Update the pet's clothes
+                selectedShellImage.setImageResource(selectedShell) // Update selected shell image
+            }
+            recyclerViewShell.adapter = shellAdapter
+        }
+
+        petViewModel.customization.observe(viewLifecycleOwner) { customization ->
+            selectedShellImage.setImageResource(customization.clothes)
+            selectedHatImage.setImageResource(customization.hat)
         }
 
         return binding

@@ -56,17 +56,60 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="280dp">
+                android:layout_height="250dp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                <ImageView
+                    android:id="@+id/selectedHeadImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="60dp"
+                    android:contentDescription="Selected Shell"
+                    android:src="@drawable/pet_kucing_head"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/selectedShellImage"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="-40dp"
+                    android:contentDescription="Selected Shell"
+                    android:src="@drawable/default_shell1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/selectedHeadImage"/>
+
+                <ImageView
+                    android:id="@+id/selectedHandImage"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="-15dp"
+                    android:contentDescription="Selected Shell"
+                    android:src="@drawable/pet_kucing_hand"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/selectedHeadImage"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+                <ImageView
+                    android:id="@+id/selectedHatImage"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="-75dp"
+                    android:contentDescription="Selected Hat"
+                    android:src="@drawable/default_hat1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/selectedHeadImage"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp">
+                android:layout_height="60dp">
 
                 <TextView
                     android:id="@+id/lblChooseAttributes"
@@ -119,7 +162,7 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="75dp">
+                            android:layout_height="90dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -127,6 +170,7 @@
                                 android:orientation="horizontal">
 
                                 <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerViewHat"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent" />
                             </LinearLayout>
@@ -135,14 +179,14 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="77dp"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="15dp"
                         android:background="@drawable/white_top_box_account"
                         android:orientation="vertical">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content">
 
                             <TextView
                                 android:id="@+id/lblShell"
@@ -156,26 +200,25 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                 app:layout_constraintTop_toTopOf="@id/lblShell"/>
-
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="75dp">
+                            android:layout_height="90dp">
 
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerViewShell"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="90dp"
+                                    app:layout_constraintTop_toTopOf="@id/lblShell"/>
+                            </LinearLayout>
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
