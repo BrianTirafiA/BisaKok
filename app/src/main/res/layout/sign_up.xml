@@ -75,15 +75,15 @@
         android:id="@+id/Agetext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:gravity="center"
         android:text="Age"
         android:textColor="#a19ffc"
-        android:layout_marginStart="220dp"
         android:textSize="15sp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/AgeBox"
-        app:layout_constraintStart_toStartOf="@id/whiteback"
-        app:layout_constraintEnd_toEndOf="@id/whiteback" />
+        app:layout_constraintEnd_toEndOf="@id/whiteback"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="@id/whiteback" />
 
     <EditText
         android:id="@+id/UsernameBox"
@@ -119,7 +119,7 @@
         android:layout_marginBottom="88dp"
         app:layout_constraintBottom_toTopOf="@id/emailtext"
         app:layout_constraintEnd_toEndOf="@id/whiteback"
-        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="@id/whiteback" />
 
     <TextView
