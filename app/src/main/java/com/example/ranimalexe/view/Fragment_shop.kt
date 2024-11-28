@@ -88,15 +88,35 @@ class fragment_shop : Fragment() {
             recyclerView.adapter = shopAdapter
         }
 
+//        hatViewModel.filteredHat.observe(viewLifecycleOwner) { hatItems ->
+//            hatAdapter = ShopHatAdapter(hatItems) { selectedHat ->
+//                val message = "Congrats! You got an item!"
+//                val builder = AlertDialog.Builder(requireContext())
+//                    .setMessage(message)
+//                    .setPositiveButton("OK") { dialog, _ ->
+//                        dialog.dismiss()
+//                    }
+//            }
+//            recyclerViewHat.adapter = hatAdapter
+//        }
+
         hatViewModel.filteredHat.observe(viewLifecycleOwner) { hatItems ->
-            hatAdapter = ShopHatAdapter(hatItems) { selectedHat ->
-                val message = "Congrats! You got an item!"
-                val builder = AlertDialog.Builder(requireContext())
-                    .setMessage(message)
-                    .setPositiveButton("OK") { dialog, _ ->
-                        dialog.dismiss()
-                    }
-            }
+            hatAdapter = ShopHatAdapter(
+                hatItemList = hatItems,
+                onHatSelected = { selectedHat ->
+                    val message = "Congrats! You got an item: ${selectedHat.name}"
+                    val builder = AlertDialog.Builder(requireContext())
+                        .setMessage(message)
+                        .setPositiveButton("OK") { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                    builder.show()
+                },
+                onUnlockHat = { hatToUnlock ->
+                    hatViewModel.unlockHat(hatToUnlock.id)
+                    val message = "Congrats! You got an item:"
+                }
+            )
             recyclerViewHat.adapter = hatAdapter
         }
 

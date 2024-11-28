@@ -45,7 +45,8 @@ class ShopAdapter(
 
 class ShopHatAdapter(
     private val hatItemList: List<Hat>,
-    private val onClick: (Int) -> Unit
+    private val onHatSelected: (Hat) -> Unit, // Handle selection
+    private val onUnlockHat: (Hat) -> Unit
 ) : RecyclerView.Adapter<ShopHatAdapter.HatItemViewHolder>() {
     inner class HatItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val itemName: TextView = itemView.findViewById(R.id.itemName)
@@ -56,7 +57,12 @@ class ShopHatAdapter(
             itemName.text = ShopCustom.name
             itemImage.setImageResource(ShopCustom.imageResId)
             itemPrice.text = ShopCustom.price.toString()
-            itemView.setOnClickListener { onClick(ShopCustom.imageResId) }
+            itemView.setOnClickListener {
+                onUnlockHat(ShopCustom)
+                onHatSelected(ShopCustom)
+                hatItemList[position].status = true
+                notifyItemChanged(position)
+            }
         }
     }
 
