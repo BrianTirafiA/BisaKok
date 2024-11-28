@@ -51,6 +51,7 @@ class ShellAdapter(
             itemImage.setImageResource(wardrobeItem.imageResId)
             itemView.setOnClickListener { onClick(wardrobeItem.imageResId) }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShellItemViewHolder {

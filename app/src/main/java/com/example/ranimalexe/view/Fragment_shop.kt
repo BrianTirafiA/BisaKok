@@ -17,6 +17,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ranimalexe.Constants
 import com.example.ranimalexe.R
 import com.example.ranimalexe.view.adapter.ShopAdapter
+import com.example.ranimalexe.view.adapter.ShopHatAdapter
+import com.example.ranimalexe.view.adapter.ShopShellAdapter
+import com.example.ranimalexe.viewmodel.HatViewModel
+import com.example.ranimalexe.viewmodel.ShellViewModel
 import com.example.ranimalexe.viewmodel.ShopViewModel
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,6 +38,12 @@ class fragment_shop : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var shopAdapter: ShopAdapter
     private lateinit var shopViewModel: ShopViewModel
+    private lateinit var recyclerViewHat: RecyclerView
+    private lateinit var recyclerViewShell: RecyclerView
+    private lateinit var hatAdapter: ShopHatAdapter
+    private lateinit var hatViewModel: HatViewModel
+    private lateinit var shellAdapter: ShopShellAdapter
+    private lateinit var shellViewModel: ShellViewModel
     private lateinit var spinStatus: TextView
 
 
@@ -52,16 +62,54 @@ class fragment_shop : Fragment() {
         val binding = inflater.inflate(R.layout.fragment_shop, container, false)
 
         recyclerView = binding.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerViewHat = binding.findViewById(R.id.recyclerViewHat)
+        recyclerViewShell = binding.findViewById(R.id.recyclerViewShell)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewHat.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewShell.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         val spinButton: Button = binding.findViewById(R.id.spinButton)
         val spinner: View = binding.findViewById(R.id.spinnerWheel)
         spinStatus = binding.findViewById(R.id.spinStatus)
-        shopViewModel = ViewModelProvider(this).get(ShopViewModel::class.java)
+
+        shopViewModel = ViewModelProvider(this)[ShopViewModel::class.java]
+        hatViewModel = ViewModelProvider(this)[HatViewModel::class.java]
+        shellViewModel = ViewModelProvider(this)[ShellViewModel::class.java]
 
         shopViewModel.fruitList.observe(viewLifecycleOwner) { shopItems ->
-            shopAdapter = ShopAdapter(shopItems)
+            shopAdapter = ShopAdapter(shopItems) { selectedFood ->
+                val message = "Congrats! You got an item!"
+                val builder = AlertDialog.Builder(requireContext())
+                    .setMessage(message)
+                    .setPositiveButton("OK") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+            }
             recyclerView.adapter = shopAdapter
+        }
+
+        hatViewModel.filteredHat.observe(viewLifecycleOwner) { hatItems ->
+            hatAdapter = ShopHatAdapter(hatItems) { selectedHat ->
+                val message = "Congrats! You got an item!"
+                val builder = AlertDialog.Builder(requireContext())
+                    .setMessage(message)
+                    .setPositiveButton("OK") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+            }
+            recyclerViewHat.adapter = hatAdapter
+        }
+
+        shellViewModel.filteredShells.observe(viewLifecycleOwner) { shellItems ->
+            shellAdapter = ShopShellAdapter(shellItems) { selectedShell ->
+                val message = "Congrats! You got an item!"
+                val builder = AlertDialog.Builder(requireContext())
+                    .setMessage(message)
+                    .setPositiveButton("OK") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+            }
+            recyclerViewShell.adapter = shellAdapter
         }
 
         spinButton.setOnClickListener {
