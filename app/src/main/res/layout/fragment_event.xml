@@ -1,19 +1,589 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
-    tools:context=".view.fragment_event">
+    android:fillViewport="true">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="wrap_content"
+        android:background="#B5B9FF"
+        tools:context=".view.fragment_profile">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtDailyMission"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="DAILY MISSION"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="107dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                tools:layout_editor_absoluteX="30dp"
+                                tools:layout_editor_absoluteY="5dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/white_top_box_account"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/lblCurrentEXP"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:fontFamily="@font/montserrat"
+                                        android:text="Mission Completed"
+                                        android:textAlignment="center"
+                                        android:textAllCaps="false"
+                                        android:textSize="14sp" />
+
+                                    <TextView
+                                        android:id="@+id/txtCurrentEXP"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_bold"
+                                        android:text="4"
+                                        android:textAlignment="center"
+                                        android:textSize="34sp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="10dp"
+
+                                    android:layout_weight="1"
+                                    android:background="@drawable/white_top_box_account"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/lblDailyEXP"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:fontFamily="@font/montserrat"
+                                        android:text="Mission In-Progress"
+                                        android:textAlignment="center"
+                                        android:textAllCaps="false"
+                                        android:textSize="14sp" />
+
+                                    <TextView
+                                        android:id="@+id/txtTotalEXP"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_bold"
+                                        android:text="1"
+                                        android:textAlignment="center"
+                                        android:textSize="34sp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/white_top_box_account"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/lblTotalScore"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:fontFamily="@font/montserrat"
+                                        android:text="Total Score Earned"
+                                        android:textAlignment="center"
+                                        android:textAllCaps="false"
+                                        android:textSize="14sp" />
+
+                                    <TextView
+                                        android:id="@+id/txtTotalScore"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_bold"
+                                        android:text="0,07"
+                                        android:textAlignment="center"
+                                        android:textSize="34sp" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="938dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="30dp"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/transparant_white_stroke"
+                                    android:baselineAligned="false"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtMission1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat_bold"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="20dp"
+                                            android:text="Bergerak Sejauh 2 KM" />
+
+                                        <Button
+                                            android:id="@+id/btnEXP1"
+                                            style="@style/Widget.Material3.Button.ElevatedButton"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_weight="1"
+                                            android:text="Get EXP"
+                                            app:backgroundTint="#F2C75B" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtProgress1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="20dp"
+                                            android:text="Progress" />
+
+                                        <TextView
+                                            android:id="@+id/txtProgressResult1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat"
+                                            android:gravity="center_vertical"
+                                            android:paddingRight="20dp"
+                                            android:text="2/2"
+                                            android:textAlignment="textEnd" />
+                                    </LinearLayout>
+
+                                    <com.google.android.material.slider.Slider
+                                        android:id="@+id/sliderMission1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="20dp"
+                                        android:value="100"
+                                        android:valueFrom="0.0"
+                                        android:valueTo="100.0"
+                                        app:thumbColor="#F2C75B"
+
+                                        android:contentDescription="Slider Progress"
+                                        app:trackColor="#FFFFFF" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/transparant_white_stroke"
+                                    android:baselineAligned="false"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtMission2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat_bold"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="20dp"
+                                            android:text="Bergerak Sejauh 4 KM" />
+
+                                        <Button
+                                            android:id="@+id/btnEXP2"
+                                            style="@style/Widget.Material3.Button.ElevatedButton"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_weight="1"
+                                            android:text="GET EXP"
+                                            app:backgroundTint="#D9D9D9" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtProgress2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="20dp"
+                                            android:text="Progress" />
+
+                                        <TextView
+                                            android:id="@+id/txtProgressResult2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat"
+                                            android:gravity="center_vertical"
+                                            android:paddingRight="20dp"
+                                            android:text="2/4"
+                                            android:textAlignment="textEnd" />
+                                    </LinearLayout>
+
+                                    <com.google.android.material.slider.Slider
+                                        android:id="@+id/sliderMission2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="20dp"
+                                        android:value="20"
+                                        android:valueFrom="0.0"
+                                        android:valueTo="40.0"
+                                        app:thumbColor="#F2C75B"
+
+                                        app:trackColor="#FFFFFF"
+                                        android:contentDescription="Slider Progress"
+                                        />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/transparant_white_stroke"
+                                    android:baselineAligned="false"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtMission3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat_bold"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="20dp"
+                                            android:text="Bergerak Sejauh 6 KM" />
+
+                                        <Button
+                                            android:id="@+id/btnEXP3"
+                                            style="@style/Widget.Material3.Button.ElevatedButton"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_weight="1"
+                                            android:text="RUN"
+                                            app:backgroundTint="#D9D9D9" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtProgress3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="20dp"
+                                            android:text="Progress" />
+
+                                        <TextView
+                                            android:id="@+id/txtProgressResult3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat"
+                                            android:gravity="center_vertical"
+                                            android:paddingRight="20dp"
+                                            android:text="2/6"
+                                            android:textAlignment="textEnd" />
+                                    </LinearLayout>
+
+                                    <com.google.android.material.slider.Slider
+                                        android:id="@+id/sliderMission3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="20dp"
+                                        android:value="20"
+                                        android:valueFrom="0.0"
+                                        android:valueTo="60.0"
+                                        app:thumbColor="#F2C75B"
+
+                                        app:trackColor="#FFFFFF"
+                                        android:contentDescription="Slider Progress"
+                                    />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/transparant_white_stroke"
+                                    android:baselineAligned="false"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtMission4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat_bold"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="20dp"
+                                            android:text="Bergerak Sejauh 10 KM" />
+
+                                        <Button
+                                            android:id="@+id/btnEXP4"
+                                            style="@style/Widget.Material3.Button.ElevatedButton"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_weight="1"
+                                            android:text="RUN"
+                                            app:backgroundTint="#D9D9D9" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtProgress4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="20dp"
+                                            android:text="Progress" />
+
+                                        <TextView
+                                            android:id="@+id/txtProgressResult4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat"
+                                            android:gravity="center_vertical"
+                                            android:paddingRight="20dp"
+                                            android:text="3/10"
+                                            android:textAlignment="textEnd" />
+                                    </LinearLayout>
+
+                                    <com.google.android.material.slider.Slider
+                                        android:id="@+id/sliderMission4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="20dp"
+                                        android:value="30"
+                                        android:valueFrom="0.0"
+                                        android:valueTo="100.0"
+                                        app:thumbColor="#F2C75B"
+
+                                        app:trackColor="#FFFFFF"
+                                        android:contentDescription="Slider Progress"
+                                    />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/transparant_white_stroke"
+                                    android:baselineAligned="false"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtMission5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat_bold"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="20dp"
+                                            android:text="Bergerak Sejauh 2 KM" />
+
+                                        <Button
+                                            android:id="@+id/btnEXP5"
+                                            style="@style/Widget.Material3.Button.ElevatedButton"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_weight="1"
+                                            android:text="RUN"
+                                            app:backgroundTint="#D9D9D9" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtProgress5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="20dp"
+                                            android:text="Progress" />
+
+                                        <TextView
+                                            android:id="@+id/txtProgressResult5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/montserrat"
+                                            android:gravity="center_vertical"
+                                            android:paddingRight="20dp"
+                                            android:text="8/15"
+                                            android:textAlignment="textEnd" />
+                                    </LinearLayout>
+
+                                    <com.google.android.material.slider.Slider
+                                        android:id="@+id/sliderMission5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="20dp"
+                                        android:value="80"
+                                        android:valueFrom="0.0"
+                                        android:valueTo="150.0"
+                                        app:thumbColor="#F2C75B"
+
+                                        app:trackColor="#FFFFFF"
+                                        android:contentDescription="Slider Progress"
+                                    />
+
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnResetMission"
+                                    style="@style/Widget.Material3.Button.ElevatedButton"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_weight="0"
+                                    android:text="Reset Mission"
+                                    app:backgroundTint="#F2C75B" />
+
+                            </LinearLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+                </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

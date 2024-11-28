@@ -1,5 +1,6 @@
 package com.example.ranimalexe.view
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -11,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.ranimalexe.R
 import com.google.firebase.auth.FirebaseAuth
 import android.content.Intent
+import android.content.SharedPreferences
 
 
 class LoginActivity : AppCompatActivity() {
@@ -39,28 +41,43 @@ class LoginActivity : AppCompatActivity() {
             val email = emailBox.text.toString()
             val password = passBox.text.toString()
 
-//            if (email.isEmpty() || password.isEmpty()) {
-//                Toast.makeText(this, "Please enter both email and password", Toast.LENGTH_SHORT).show()
-//            } else {
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please enter both email and password", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
                 loginUser(email, password)
-//            }
+            }
         }
-    }
 
-    private fun loginUser(email: String, password: String) {
-        // Authenticate the user with Firebase
-//        auth.signInWithEmailAndPassword(email, password)
-//            .addOnCompleteListener(this) { task ->
-//                if (task.isSuccessful) {
-//                    // Login successful
-//                    val user = auth.currentUser
+
+
+        fun saveUserSession(context: Context) {
+            val currentUser = FirebaseAuth.getInstance().currentUser
+            if (currentUser != null) {
+                val userId = currentUser.uid
+                val sharedPreferences: SharedPreferences =
+                    context.getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("user_id", userId) // Menyimpan uid
+                editor.apply()
+            }
+        }
+
+    }
+    fun loginUser(email: String, password: String) {
+//         Authenticate the user with Firebase
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Login successful
+                    val user = auth.currentUser
                     val intent = Intent(this, RunningActivity::class.java)
                     startActivity(intent)
                     finish()  // Close LoginActivity
-//                } else {
-//                    // If sign in fails, display a message to the user
-//                    Toast.makeText(this, "Password incorrect", Toast.LENGTH_SHORT).show()
-//                }
-//            }
+                } else {
+                    // If sign in fails, display a message to the user
+                    Toast.makeText(this, "Password incorrect", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 }
