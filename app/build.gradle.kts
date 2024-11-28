@@ -57,4 +57,5 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:18.0.0") // Atau versi yang lebih baru
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation("com.google.firebase:firebase-firestore")
+    implementation ("androidx.fragment:fragment-ktx:1.6.1")
 }
