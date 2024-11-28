@@ -6,7 +6,7 @@ data class Users (
     val password: String,
     val age: Int,
     val email: String,
-    val totalExp: Int,
-    val totalScore: Int,
-    val currentExp: Int
+    val totalExp: Int=0,
+    val totalScore: Int=0,
+    val currentExp: Int=0
     )

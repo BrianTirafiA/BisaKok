@@ -8,16 +8,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ranimalexe.R
-import com.example.ranimalexe.model.ShopItem
+import com.example.ranimalexe.model.WardrobeItem
 
-class ShopAdapter(private val shopItemList: List<ShopItem>) : RecyclerView.Adapter<ShopAdapter.ShopItemViewHolder>() {
+class ShopAdapter(private val shopItemList: List<WardrobeItem>) : RecyclerView.Adapter<ShopAdapter.ShopItemViewHolder>() {
     inner class ShopItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val itemName: TextView = itemView.findViewById(R.id.itemName)
         private val itemImage: ImageView = itemView.findViewById(R.id.itemImage)
         private val Price: TextView = itemView.findViewById(R.id.Price)
         private val buyButton: Button = itemView.findViewById(R.id.buyButton)
 
-        fun bind(shopItem: ShopItem) {
+        fun bind(shopItem: WardrobeItem) {
             itemName.text = shopItem.name
             Price.text = shopItem.price.toString()
             itemImage.setImageResource(shopItem.imageResId)
