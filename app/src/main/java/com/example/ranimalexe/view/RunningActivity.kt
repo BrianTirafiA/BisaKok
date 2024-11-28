@@ -12,6 +12,9 @@ import androidx.lifecycle.lifecycleScope
 import com.example.ranimalexe.R
 import com.example.ranimalexe.api.FirestoreAPI
 import com.example.ranimalexe.api.ItemAPI
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.Query
 import kotlinx.coroutines.launch
 
 //import kotlinx.android.synthetic.main.bottom_navbar.*
@@ -20,6 +23,9 @@ import kotlinx.coroutines.launch
 //private const val totalDistance = 0f
 
 class RunningActivity : AppCompatActivity() {
+
+    private lateinit var db : FirebaseFirestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
@@ -51,6 +57,15 @@ class RunningActivity : AppCompatActivity() {
         val navHome = findViewById<LinearLayout>(R.id.nav_home)
         navHome.setOnClickListener { loadFragment(fragment_home()) }
 
+        var db = FirebaseFirestore.getInstance()
+
+        db.collection("ShopItems")
+            .get()
+            .addOnSuccessListener { result ->
+                for (doc in result)
+                    Log.d("Firestore", doc.id + " => " + doc.data.toString())
+            }
+
         lifecycleScope.launch {
 
             FirestoreAPI().getDocumentById(
@@ -69,6 +84,9 @@ class RunningActivity : AppCompatActivity() {
             for (item in items){
                 Log.d("Shop Item", item.id)
             }
+
+            db.collection("ShopItems")
+                .get()
         }
     }
 

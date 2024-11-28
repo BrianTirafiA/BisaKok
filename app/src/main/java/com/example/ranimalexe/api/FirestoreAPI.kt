@@ -3,7 +3,7 @@ package com.example.ranimalexe.api
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.DocumentSnapshot
-import com.google.android.gms.tasks.Task
+//import com.google.android.gms.tasks.Task
 
 class FirestoreAPI {
     private val firestore = FirebaseFirestore.getInstance()
