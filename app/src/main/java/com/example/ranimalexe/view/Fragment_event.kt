@@ -41,18 +41,9 @@ class fragment_event : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = inflater.inflate(R.layout.fragment_event, container, false)
-
-        recyclerView = binding.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        eventViewModel = ViewModelProvider(this).get(EventViewModel::class.java)
-
-        eventViewModel.taskList.observe(viewLifecycleOwner) { eventItems ->
-            eventAdapter = EventAdapter(eventItems)
-            recyclerView.adapter = eventAdapter
-        }
-
-        return binding
+        val rootView = inflater.inflate(R.layout.fragment_home, container, false)
+//        distanceTextView = rootView.findViewById(R.id.TodayExpCount)  // pastikan ada TextView untuk jarak
+        return rootView
     }
 
     companion object {

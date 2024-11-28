@@ -11,7 +11,7 @@ buildscript {
     }
     dependencies {
         // Plugin yang diperlukan untuk Firebase dan Google Services
-
+        classpath("com.google.gms:google-services:4.4.2") // Pastikan ini versi terbaru
     }
 }
 //

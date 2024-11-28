@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.ranimalexe.R
-import com.example.ranimalexe.model.ItemType
 import com.example.ranimalexe.model.ShopItem
 
 class ShopViewModel : ViewModel() {
@@ -17,9 +16,11 @@ class ShopViewModel : ViewModel() {
 
     private fun loadFruits() {
         _fruitList.value = listOf(
-            ShopItem("1", "1", 1, ItemType.FoodItem, "Grape", R.drawable.grape),
-            ShopItem("2", "2", 2, ItemType.FoodItem, "Peach", R.drawable.apple),
-            ShopItem("3", "3", 3, ItemType.FoodItem, "Peach", R.drawable.apple),
+            ShopItem(1, "Burger", R.drawable.borgir, 10),
+            ShopItem(2, "Sausage", R.drawable.sausage, 20),
+            ShopItem(3, "Skewer", R.drawable.skewer, 30),
+            ShopItem(4, "Chicken", R.drawable.chickenstick, 40),
+            ShopItem(5, "Steak", R.drawable.steak, 50),
         )
     }
 }

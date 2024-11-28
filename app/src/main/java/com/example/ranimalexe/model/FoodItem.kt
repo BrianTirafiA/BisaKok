@@ -1,8 +1,9 @@
 package com.example.ranimalexe.model
 
-data class FoodItem(
-    val id: String = "",
-    val name: String = "",
-    val imageResId: Int = 0,
-    val satiety : Float = 0f
+data class FoodItem (
+    val id: Int,
+    val name: String,
+    val satiety: Int,
+    val price: Int,
+    val imageResId: String
 )
