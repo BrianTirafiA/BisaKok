@@ -37,14 +37,14 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/lblCustomize"
+                            android:id="@+id/txtDailyMission"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp"
                             android:fontFamily="@font/montserrat_bold"
-                            android:text="STORE"
+                            android:text="SHOP"
+                            android:layout_marginTop="50dp"
                             android:textAlignment="center"
-                            android:textSize="30sp"
+                            android:textSize="24sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -57,9 +57,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="75dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp">
 
@@ -71,6 +71,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -78,27 +80,27 @@
                             android:layout_height="match_parent"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
-                            android:gravity="center"
                             android:background="@drawable/white_top_box_account"
+                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:id="@+id/expimg"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
+                                android:contentDescription="Item Image"
                                 android:src="@drawable/exp"
-                                android:contentDescription="Item Image" />
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
                                 android:id="@+id/lblCurrentEXP"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat"
-                                android:layout_marginRight="10dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:fontFamily="@font/montserrat"
                                 android:text="EXP not used"
                                 android:textAlignment="center"
                                 android:textAllCaps="false"
@@ -120,27 +122,27 @@
                             android:layout_height="match_parent"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
-                            android:gravity="center"
                             android:background="@drawable/white_top_box_account"
+                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:id="@+id/coinimg"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
+                                android:contentDescription="Item Image"
                                 android:src="@drawable/credit"
-                                android:contentDescription="Item Image" />
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
                                 android:id="@+id/yourcredit"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat"
-                                android:layout_marginRight="10dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:fontFamily="@font/montserrat"
                                 android:text="Your credit"
                                 android:textAlignment="center"
                                 android:textAllCaps="false"
@@ -171,6 +173,8 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
                     android:layout_weight="0.05"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
                     app:dividerColor="#ffffff" />
             </LinearLayout>
 
@@ -184,7 +188,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp">
 
@@ -206,7 +210,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:background="@color/PastelPurple">
 
@@ -288,6 +292,9 @@
 
                                     <androidx.recyclerview.widget.RecyclerView
                                         android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="15dp"
                                         android:id="@+id/recyclerView"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent" />
@@ -322,6 +329,9 @@
 
                                     <androidx.recyclerview.widget.RecyclerView
                                         android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="15dp"
                                         android:id="@+id/recyclerViewHat"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent" />
@@ -357,6 +367,9 @@
 
                                     <androidx.recyclerview.widget.RecyclerView
                                         android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="15dp"
                                         android:id="@+id/recyclerViewShell"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent" />

@@ -7,7 +7,7 @@ data class Hat(
     val name: String,
     val imageResId: Int,
     val desc: String,
-    val status: Boolean,
+    var status: Boolean,
     val price: Int= 100
 )
 
@@ -16,7 +16,7 @@ data class Shell(
     val name: String,
     val imageResId: Int,
     val desc: String,
-    val status: Boolean,
+    var status: Boolean,
     val price: Int= 100
 )
 
