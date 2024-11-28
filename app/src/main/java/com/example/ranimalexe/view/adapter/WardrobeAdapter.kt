@@ -17,11 +17,26 @@ class HatAdapter(
     inner class HatItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val itemName: TextView = itemView.findViewById(R.id.itemName)
         private val itemImage: ImageView = itemView.findViewById(R.id.itemImage)
+        private val lockOverlay: View = itemView.findViewById(R.id.lock)
 
         fun bind(wardrobeItem: Hat) {
             itemName.text = wardrobeItem.name
             itemImage.setImageResource(wardrobeItem.imageResId)
-            itemView.setOnClickListener { onClick(wardrobeItem.imageResId) }
+            if (!wardrobeItem.status) {
+                // Disable click and show overlay
+                lockOverlay.visibility = View.VISIBLE
+                itemView.isEnabled = false
+                itemView.alpha = 0.5f // Make it visually distinct
+            } else {
+                // Enable click and hide overlay
+                lockOverlay.visibility = View.GONE
+                itemView.isEnabled = true
+                itemView.alpha = 1.0f
+            }
+            if (wardrobeItem.status) {
+                itemView.setOnClickListener { onClick(wardrobeItem.imageResId)
+                }
+            }
         }
     }
 
@@ -45,12 +60,28 @@ class ShellAdapter(
     inner class ShellItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val itemName: TextView = itemView.findViewById(R.id.itemName)
         private val itemImage: ImageView = itemView.findViewById(R.id.itemImage)
+        private val lockOverlay: View = itemView.findViewById(R.id.lock)
 
         fun bind(wardrobeItem: Shell) {
             itemName.text = wardrobeItem.name
             itemImage.setImageResource(wardrobeItem.imageResId)
-            itemView.setOnClickListener { onClick(wardrobeItem.imageResId) }
+            if (!wardrobeItem.status) {
+                // Disable click and show overlay
+                lockOverlay.visibility = View.VISIBLE
+                itemView.isEnabled = false
+                itemView.alpha = 0.5f // Make it visually distinct
+            } else {
+                // Enable click and hide overlay
+                lockOverlay.visibility = View.GONE
+                itemView.isEnabled = true
+                itemView.alpha = 1.0f
+            }
+            if (wardrobeItem.status) {
+                itemView.setOnClickListener { onClick(wardrobeItem.imageResId)
+                }
+            }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShellItemViewHolder {

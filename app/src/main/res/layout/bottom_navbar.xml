@@ -19,8 +19,8 @@
         android:layout_alignParentBottom="true"
         android:background="#B5B9FF"
         android:orientation="horizontal"
-        android:padding="8dp"
-        android:elevation="10dp">
+        android:padding="3dp"
+        android:elevation="50dp">
 
         <!-- Shop Button -->
         <LinearLayout
@@ -35,8 +35,8 @@
             android:focusable="true">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/ic_shop"/>
 
             <TextView
@@ -44,6 +44,8 @@
                 android:layout_height="wrap_content"
                 android:text="Shop"
                 android:textSize="12sp"
+                android:fontFamily="@font/montserrat"
+
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
@@ -60,14 +62,16 @@
             android:focusable="true">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/ic_wardrobe" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wardrobe"
+                android:fontFamily="@font/montserrat"
+
                 android:textSize="12sp"
                 android:textColor="@android:color/white" />
         </LinearLayout>
@@ -85,8 +89,8 @@
             android:focusable="true">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/ic_home" />
 
             <TextView
@@ -94,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:text="Home"
                 android:textSize="12sp"
+                android:fontFamily="@font/montserrat"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
@@ -110,15 +115,16 @@
             android:focusable="true">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/ic_event" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Event"
+                android:text="Mission"
                 android:textSize="12sp"
+                android:fontFamily="@font/montserrat"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
@@ -135,8 +141,8 @@
             android:focusable="true">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/ic_profile" />
 
             <TextView
@@ -144,6 +150,7 @@
                 android:layout_height="wrap_content"
                 android:text="Profile"
                 android:textSize="12sp"
+                android:fontFamily="@font/montserrat"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
