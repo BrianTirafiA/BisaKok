@@ -4,5 +4,5 @@ data class FoodInventoryItem (
     val id: Int,
     val userId: Int,
     val foodId: Int,
-    val amount: Int
+    var amount: Int
 )
