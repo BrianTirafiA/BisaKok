@@ -65,7 +65,7 @@ class fragment_wardrobe : Fragment() {
         hatViewModel = ViewModelProvider(this)[HatViewModel::class.java]
         shellViewModel = ViewModelProvider(this)[ShellViewModel::class.java]
 
-        hatViewModel.hatList.observe(viewLifecycleOwner) { hatItems ->
+        hatViewModel.allHats.observe(viewLifecycleOwner) { hatItems ->
             hatAdapter = HatAdapter(hatItems) { selectedHat ->
                 petViewModel.updateHat(selectedHat) // Update the pet's hat
                 selectedHatImage.setImageResource(selectedHat) // Update selected hat image
@@ -73,7 +73,7 @@ class fragment_wardrobe : Fragment() {
             recyclerViewHat.adapter = hatAdapter
         }
 
-        shellViewModel.shellList.observe(viewLifecycleOwner) { shellItems ->
+        shellViewModel.allShells.observe(viewLifecycleOwner) { shellItems ->
             shellAdapter = ShellAdapter(shellItems) { selectedShell ->
                 petViewModel.updateClothes(selectedShell) // Update the pet's clothes
                 selectedShellImage.setImageResource(selectedShell) // Update selected shell image

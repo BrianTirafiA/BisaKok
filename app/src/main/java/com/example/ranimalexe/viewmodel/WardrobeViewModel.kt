@@ -8,15 +8,19 @@ import com.example.ranimalexe.model.Hat
 import com.example.ranimalexe.model.PetCustomization
 import com.example.ranimalexe.model.Shell
 class HatViewModel : ViewModel() {
-    private val _hat = MutableLiveData<List<Hat>>()
-    val hatList: LiveData<List<Hat>> get() = _hat
+    private val _allHats = MutableLiveData<List<Hat>>()
+    val allHats: LiveData<List<Hat>> get() = _allHats
+
+    private val _filteredHat = MutableLiveData<List<Hat>>()
+    val filteredHat: LiveData<List<Hat>> get() = _filteredHat
 
     init {
         loadCosmetic()
+        filterHatById(4..24)
     }
 
     private fun loadCosmetic() {
-        _hat.value = listOf(
+        _allHats.value = listOf(
             Hat(0, "Basic Red", R.drawable.default_hat1, "proof of your birth", true),
             Hat(1, "Basic Blue", R.drawable.default_hat2, "proof of your birth", true),
             Hat(2, "Basic Green", R.drawable.default_hat3, "proof of your birth", true),
@@ -34,14 +38,14 @@ class HatViewModel : ViewModel() {
             Hat(14, "OakWood", R.drawable.hoak, "COMMON! Nature texture", false),
             Hat(15, "DarkWood", R.drawable.hdarkoak, "COMMON! Nature texture", false),
             Hat(16, "'R'0.2", R.drawable.helmagma, "UNCOMMON! Improved nature formula", false),
-            Hat(17, "'B'0.2", R.drawable.helice, "UNCOMMON! Improved nature formula", false),
-            Hat(18, "'G'0.2", R.drawable.huelgreen, "UNCOMMON! Improved nature formula", false),
-            Hat(19, "Flaming Hot", R.drawable.hflame, "UNCOMMON! Burn everything", false),
-            Hat(20, "Cold Breeze", R.drawable.hnwater, "UNCOMMON! Felt like winter", false),
-            Hat(21, "Toxic Green", R.drawable.htoxic, "UNCOMMON! Pure Acid", false),
-            Hat(22, "Melting Red", R.drawable.hfirered, "RARE!! Straight from the core", false),
-            Hat(23, "Electric Ocean", R.drawable.hewater, "RARE!! Don't jump into it", false),
-            Hat(24, "Death Touch", R.drawable.hskull, "RARE!! A touch and it's over", false),
+            Hat(17, "'B'0.2", R.drawable.helice, "UNCOMMON! Improved nature formula", false, 200),
+            Hat(18, "'G'0.2", R.drawable.huelgreen, "UNCOMMON! Improved nature formula", false, 200),
+            Hat(19, "Flaming Hot", R.drawable.hflame, "UNCOMMON! Burn everything", false, 200),
+            Hat(20, "Cold Breeze", R.drawable.hnwater, "UNCOMMON! Felt like winter", false, 200),
+            Hat(21, "Toxic Green", R.drawable.htoxic, "UNCOMMON! Pure Acid", false, 200),
+            Hat(22, "Melting Red", R.drawable.hfirered, "RARE!! Straight from the core", false, 600),
+            Hat(23, "Electric Ocean", R.drawable.hewater, "RARE!! Don't jump into it", false, 600),
+            Hat(24, "Death Touch", R.drawable.hskull, "RARE!! A touch and it's over", false, 600),
             Hat(26, "Ruby", R.drawable.hruby, "RARE!! Original red, made with love", false),
             Hat(27, "Azure", R.drawable.hazure, "RARE!! Original blue, made with love", false),
             Hat(28, "Jade", R.drawable.hjade, "RARE!! Original green, made with love", false),
@@ -50,18 +54,26 @@ class HatViewModel : ViewModel() {
             Hat(31, "Zeus", R.drawable.hzeus, "LEGENDARY!!! Struck like a lightning", false),
         )
     }
+
+    fun filterHatById(range: IntRange) {
+        _filteredHat.value = _allHats.value?.filter { it.id in range }
+    }
 }
 
 class ShellViewModel : ViewModel() {
-    private val _shell = MutableLiveData<List<Shell>>()
-    val shellList: LiveData<List<Shell>> get() = _shell
+    private val _allShells = MutableLiveData<List<Shell>>()
+    val allShells: LiveData<List<Shell>> get() = _allShells
+
+    private val _filteredShells = MutableLiveData<List<Shell>>()
+    val filteredShells: LiveData<List<Shell>> get() = _filteredShells
 
     init {
-        loadCosmetic()
+        loadShells()
+        filterShellsById(4..24)
     }
 
-    private fun loadCosmetic() {
-        _shell.value = listOf(
+    private fun loadShells() {
+        _allShells.value = listOf(
             Shell(0, "Basic Red", R.drawable.default_shell1, "proof of your birth", true),
             Shell(1, "Basic Blue", R.drawable.default_shell2, "proof of your birth", true),
             Shell(2, "Basic Green", R.drawable.default_shell3, "proof of your birth", true),
@@ -78,15 +90,15 @@ class ShellViewModel : ViewModel() {
             Shell(13, "BirchWood", R.drawable.sbirch, "COMMON! Nature texture", false),
             Shell(14, "OakWood", R.drawable.soak, "COMMON! Nature texture", false),
             Shell(15, "DarkWood", R.drawable.sdarkoak, "COMMON! Nature texture", false),
-            Shell(16, "'R'0.2", R.drawable.selmagma, "UNCOMMON! Improved nature formula", false),
-            Shell(17, "'B'0.2", R.drawable.selice, "UNCOMMON! Improved nature formula", false),
-            Shell(18, "'G'0.2", R.drawable.suelgreen, "UNCOMMON! Improved nature formula", false),
-            Shell(19, "Flaming Hot", R.drawable.sflame, "UNCOMMON! Burn everything", false),
-            Shell(20, "Cold Breeze", R.drawable.snwater, "UNCOMMON! Felt like winter", false),
-            Shell(21, "Toxic Green", R.drawable.stoxic, "UNCOMMON! Pure Acid", false),
-            Shell(22, "Melting Red", R.drawable.sfirered, "RARE!! Straight from the core", false),
-            Shell(23, "Electric Ocean", R.drawable.sewater, "RARE!! Don't jump into it", false),
-            Shell(24, "Death Touch", R.drawable.sskull, "RARE!! A touch and it's over", false),
+            Shell(16, "'R'0.2", R.drawable.selmagma, "UNCOMMON! Improved nature formula", false, 200),
+            Shell(17, "'B'0.2", R.drawable.selice, "UNCOMMON! Improved nature formula", false, 200),
+            Shell(18, "'G'0.2", R.drawable.suelgreen, "UNCOMMON! Improved nature formula", false, 200),
+            Shell(19, "Flaming Hot", R.drawable.sflame, "UNCOMMON! Burn everything", false, 200),
+            Shell(20, "Cold Breeze", R.drawable.snwater, "UNCOMMON! Felt like winter", false, 200),
+            Shell(21, "Toxic Green", R.drawable.stoxic, "UNCOMMON! Pure Acid", false, 200),
+            Shell(22, "Melting Red", R.drawable.sfirered, "RARE!! Straight from the core", false, 600),
+            Shell(23, "Electric Ocean", R.drawable.sewater, "RARE!! Don't jump into it", false, 600),
+            Shell(24, "Death Touch", R.drawable.sskull, "RARE!! A touch and it's over", false, 600),
             Shell(26, "Ruby", R.drawable.sruby, "RARE!! Original red, made with love", false),
             Shell(27, "Azure", R.drawable.sazure, "RARE!! Original blue, made with love", false),
             Shell(28, "Jade", R.drawable.sjade, "RARE!! Original green, made with love", false),
@@ -95,7 +107,12 @@ class ShellViewModel : ViewModel() {
             Shell(31, "Zeus", R.drawable.szeus, "LEGENDARY!!! Struck like a lightning", false),
         )
     }
+
+    fun filterShellsById(range: IntRange) {
+        _filteredShells.value = _allShells.value?.filter { it.id in range }
+    }
 }
+
 
 
 class PetViewModel : ViewModel() {
@@ -103,8 +120,12 @@ class PetViewModel : ViewModel() {
     private val _customization = MutableLiveData(PetCustomization())
     val customization: LiveData<PetCustomization> get() = _customization
 
-    fun updatePet(pet: Int) {
-        _customization.value = _customization.value?.copy(pet = pet)
+    fun updatePet(petHead: Int) {
+        _customization.value = _customization.value?.copy(petHead = petHead)
+    }
+
+    fun updatePet2(petHand: Int) {
+        _customization.value = _customization.value?.copy(petHand = petHand)
     }
 
     fun updateClothes(clothes: Int) {

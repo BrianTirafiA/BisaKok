@@ -7,7 +7,8 @@ data class Hat(
     val name: String,
     val imageResId: Int,
     val desc: String,
-    val status: Boolean
+    val status: Boolean,
+    val price: Int= 100
 )
 
 data class Shell(
@@ -15,11 +16,13 @@ data class Shell(
     val name: String,
     val imageResId: Int,
     val desc: String,
-    val status: Boolean
+    val status: Boolean,
+    val price: Int= 100
 )
 
 data class PetCustomization(
-    val pet: Int = R.drawable.default_shell1,
+    val petHead: Int = R.drawable.pet_kucing_head,
+    val petHand: Int = R.drawable.pet_kucing_hand,
     val clothes: Int = R.drawable.default_shell1, // Default clothes
     val hat: Int = R.drawable.default_hat1      // Default hat
 )
