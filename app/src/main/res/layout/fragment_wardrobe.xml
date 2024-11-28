@@ -60,8 +60,8 @@
 
                 <ImageView
                     android:id="@+id/selectedHeadImage"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginBottom="60dp"
                     android:contentDescription="Selected Shell"
                     android:src="@drawable/pet_kucing_head"
@@ -72,9 +72,9 @@
 
                 <ImageView
                     android:id="@+id/selectedShellImage"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="-30dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="-40dp"
                     android:contentDescription="Selected Shell"
                     android:src="@drawable/default_shell1"
                     app:layout_constraintStart_toStartOf="parent"
@@ -83,9 +83,9 @@
 
                 <ImageView
                     android:id="@+id/selectedHandImage"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="-40dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="-15dp"
                     android:contentDescription="Selected Shell"
                     android:src="@drawable/pet_kucing_hand"
                     app:layout_constraintStart_toStartOf="parent"
@@ -97,9 +97,9 @@
 
                 <ImageView
                     android:id="@+id/selectedHatImage"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginBottom="-60dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="-75dp"
                     android:contentDescription="Selected Hat"
                     android:src="@drawable/default_hat1"
                     app:layout_constraintEnd_toEndOf="parent"

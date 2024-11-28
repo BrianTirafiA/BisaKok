@@ -81,6 +81,11 @@ class fragment_wardrobe : Fragment() {
             recyclerViewShell.adapter = shellAdapter
         }
 
+        petViewModel.customization.observe(viewLifecycleOwner) { customization ->
+            selectedShellImage.setImageResource(customization.clothes)
+            selectedHatImage.setImageResource(customization.hat)
+        }
+
         return binding
     }
 
