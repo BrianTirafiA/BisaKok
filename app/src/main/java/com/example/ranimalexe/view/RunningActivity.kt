@@ -80,13 +80,7 @@ class RunningActivity : AppCompatActivity() {
 
         // Menyiapkan pemanggilan fragment
         val navProfile = findViewById<LinearLayout>(R.id.nav_profile)
-        navProfile.setOnClickListener {
-            // Misalnya userId disimpan di SharedPreferences atau session
-            val userId = userId  // Ganti dengan userId yang sesuai
-
-            // Memanggil API untuk mendapatkan data pengguna
-            getUserData(userId)
-        }
+        navProfile.setOnClickListener {loadFragment(fragment_profile()) }
 
         val navEvent = findViewById<LinearLayout>(R.id.nav_event)
         navEvent.setOnClickListener { loadFragment(fragment_event()) }
