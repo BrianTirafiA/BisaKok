@@ -45,6 +45,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:layout_marginTop="20dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -156,7 +157,7 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="938dp">
+                            android:layout_height="1003dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -235,12 +236,12 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginBottom="20dp"
+                                        android:contentDescription="Slider Progress"
                                         android:value="100"
                                         android:valueFrom="0.0"
                                         android:valueTo="100.0"
-                                        app:thumbColor="#F2C75B"
 
-                                        android:contentDescription="Slider Progress"
+                                        app:thumbColor="#F2C75B"
                                         app:trackColor="#FFFFFF" />
 
                                 </LinearLayout>
@@ -314,14 +315,13 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginBottom="20dp"
+                                        android:contentDescription="Slider Progress"
                                         android:value="20"
                                         android:valueFrom="0.0"
                                         android:valueTo="40.0"
-                                        app:thumbColor="#F2C75B"
 
-                                        app:trackColor="#FFFFFF"
-                                        android:contentDescription="Slider Progress"
-                                        />
+                                        app:thumbColor="#F2C75B"
+                                        app:trackColor="#FFFFFF" />
 
                                 </LinearLayout>
 
@@ -394,14 +394,13 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginBottom="20dp"
+                                        android:contentDescription="Slider Progress"
                                         android:value="20"
                                         android:valueFrom="0.0"
                                         android:valueTo="60.0"
-                                        app:thumbColor="#F2C75B"
 
-                                        app:trackColor="#FFFFFF"
-                                        android:contentDescription="Slider Progress"
-                                    />
+                                        app:thumbColor="#F2C75B"
+                                        app:trackColor="#FFFFFF" />
 
                                 </LinearLayout>
 
@@ -474,14 +473,13 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginBottom="20dp"
+                                        android:contentDescription="Slider Progress"
                                         android:value="30"
                                         android:valueFrom="0.0"
                                         android:valueTo="100.0"
-                                        app:thumbColor="#F2C75B"
 
-                                        app:trackColor="#FFFFFF"
-                                        android:contentDescription="Slider Progress"
-                                    />
+                                        app:thumbColor="#F2C75B"
+                                        app:trackColor="#FFFFFF" />
 
                                 </LinearLayout>
 
@@ -554,14 +552,13 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginBottom="20dp"
+                                        android:contentDescription="Slider Progress"
                                         android:value="80"
                                         android:valueFrom="0.0"
                                         android:valueTo="150.0"
-                                        app:thumbColor="#F2C75B"
 
-                                        app:trackColor="#FFFFFF"
-                                        android:contentDescription="Slider Progress"
-                                    />
+                                        app:thumbColor="#F2C75B"
+                                        app:trackColor="#FFFFFF" />
 
                                 </LinearLayout>
 
