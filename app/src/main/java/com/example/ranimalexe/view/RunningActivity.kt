@@ -74,19 +74,19 @@ class RunningActivity : AppCompatActivity() {
         val navHome = findViewById<LinearLayout>(R.id.nav_home)
         navHome.setOnClickListener { loadFragment(fragment_home()) }
 
-        // Start and bind TrackingService
-        val serviceIntent = Intent(this, TrackingService::class.java)
-        startService(serviceIntent)
-        bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
+//        // Start and bind TrackingService
+//        val serviceIntent = Intent(this, TrackingService::class.java)
+//        startService(serviceIntent)
+//        bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
 
-        // Observasi jarak di ViewModel
-        runningViewModel.distance.observe(this, Observer { totalDistance ->
-            // Mendapatkan fragment_home dan memperbarui jarak
-            val fragment = supportFragmentManager.findFragmentByTag(fragment_home::class.java.simpleName)
-            if (fragment is fragment_home) {
-                fragment.updateDistance(totalDistance)
-            }
-        })
+//        // Observasi jarak di ViewModel
+//        runningViewModel.distance.observe(this, Observer { totalDistance ->
+//            // Mendapatkan fragment_home dan memperbarui jarak
+//            val fragment = supportFragmentManager.findFragmentByTag(fragment_home::class.java.simpleName)
+//            if (fragment is fragment_home) {
+//                fragment.updateDistance(totalDistance)
+//            }
+//        })
     }
 
     override fun onDestroy() {
