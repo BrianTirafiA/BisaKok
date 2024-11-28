@@ -55,14 +55,6 @@ class RunningActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bottom_navbar)
 
-        val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
-        val userId = sharedPreferences.getInt("user_id", -1) // Mengambil user_id, default -1 jika tidak ada
-        if (userId != -1) {
-            // Pengguna sudah login, lanjutkan ke aktivitas berikutnya
-        } else {
-            // Pengguna belum login, tampilkan halaman login
-        }
-
         auth = FirebaseAuth.getInstance()
         firestoreApi = FirestoreApi()
 
@@ -95,9 +87,9 @@ class RunningActivity : AppCompatActivity() {
         navHome.setOnClickListener { loadFragment(fragment_home()) }
 
         // Start and bind TrackingService
-        //val serviceIntent = Intent(this, TrackingService::class.java)
-        //startService(serviceIntent)
-        //bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
+        val serviceIntent = Intent(this, TrackingService::class.java)
+        startService(serviceIntent)
+        bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
     }
 
     override fun onDestroy() {
@@ -120,23 +112,23 @@ class RunningActivity : AppCompatActivity() {
     }
 
     // Fungsi untuk memanggil API dan mendapatkan data pengguna
-    private fun getUserData(userId: Int) {
-       firestoreApi.getUsersById(userId).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                val user = task.result?.toObject(Users::class.java)
-                if (user != null) {
-                    // Kirimkan data user ke fragment_profile
-                    val fragment = fragment_profile().apply {
-                        arguments = Bundle().apply {
-                            putSerializable("user", user)  // Kirim objek user ke fragment
-                        }
-                    }
-                    loadFragment(fragment)  // Load fragment_profile dengan data pengguna
-                }
-            } else {
-                // Tangani error jika gagal mendapatkan data
-                Log.e("RunningActivity", "Error getting user data: ${task.exception}")
-            }
-        }
-    }
+//    private fun getUserData(userId: Int) {
+//       firestoreApi.getUsersById(userId).addOnCompleteListener { task ->
+//            if (task.isSuccessful) {
+//                val user = task.result?.toObject(Users::class.java)
+//                if (user != null) {
+//                    // Kirimkan data user ke fragment_profile
+//                    val fragment = fragment_profile().apply {
+//                        arguments = Bundle().apply {
+//                            putSerializable("user", user)  // Kirim objek user ke fragment
+//                        }
+//                    }
+//                    loadFragment(fragment)  // Load fragment_profile dengan data pengguna
+//                }
+//            } else {
+//                // Tangani error jika gagal mendapatkan data
+//                Log.e("RunningActivity", "Error getting user data: ${task.exception}")
+//            }
+//        }
+//    }
 }
