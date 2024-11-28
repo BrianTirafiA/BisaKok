@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,9 +18,21 @@
         android:theme="@style/Theme.RanimalEXE"
         tools:targetApi="31">
         <service
-            android:name=".model.TrackerService"
+            android:name=".service.TrackingService"
+            android:permission="android.permission.ACCESS_FINE_LOCATION"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true"
+            >
+            <intent-filter>
+                <action android:name="com.example.ranimalexe.service.TrackingService" />
+            </intent-filter>
+
+            <!-- Specify the foregroundServiceType as location tracking -->
+            <meta-data
+                android:name="android.service.foregroundServiceType"
+                android:value="location"/>
+        </service>
+
 
         <activity
             android:name=".view.ChooseAcc"
@@ -42,6 +55,13 @@
         <activity
             android:name=".view.RunningActivity"
             android:exported="true" />
+
+<<<<<<< Updated upstream
+=======
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+>>>>>>> Stashed changes
     </application>
 
 </manifest>

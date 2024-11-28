@@ -1,412 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.fragment_profile">
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <ImageView
-        android:id="@+id/purpleback"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.5"
-        android:src="@drawable/ic_purpleback"
-        android:scaleType="fitXY"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/Backbtn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_back"
-        android:scaleType="fitXY"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/PP"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@id/purpleback"
-        app:layout_constraintEnd_toEndOf="@id/purpleback"/>
-
-    <TextView
-        android:id="@+id/ID"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ID : 497916"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/PP"
-        app:layout_constraintStart_toStartOf="@id/purpleback"
-        app:layout_constraintEnd_toEndOf="@id/purpleback"/>
+        android:background="#B5B9FF"
+        tools:context=".view.fragment_profile">
 
-    <TextView
-        android:id="@+id/AccName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Brian Tirafi Aufauzan"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@id/ID"
-        app:layout_constraintStart_toStartOf="@id/purpleback"
-        app:layout_constraintEnd_toEndOf="@id/purpleback" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/AccEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="briantirafiaufauzan@mail.ugm.ac.id"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/AccName"
-        app:layout_constraintStart_toStartOf="@id/purpleback"
-        app:layout_constraintEnd_toEndOf="@id/purpleback"/>
+                <ImageView
+                    android:id="@+id/profile_picture"
+                    android:layout_width="131dp"
+                    android:layout_height="132dp"
+                    android:layout_marginTop="52dp"
+                    android:src="@drawable/profile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/EditBTN"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:src="@drawable/ic_btneditprofile"
-        android:scaleType="fitXY"
-        android:layout_marginStart="90dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/AccEmail"
-        app:layout_constraintStart_toStartOf="@id/purpleback"
-        app:layout_constraintEnd_toStartOf="@id/SignoutBTN"/>
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Luthfi Hanif"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_picture" />
 
-    <ImageView
-        android:id="@+id/SignoutBTN"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:src="@drawable/ic_btnsignout"
-        android:scaleType="fitXY"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="90dp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/AccEmail"
-        app:layout_constraintStart_toEndOf="@id/EditBTN"
-        app:layout_constraintEnd_toEndOf="@id/purpleback"/>
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="luthfihanif@mail.ugm.ac.id"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/username" />
 
-    <TextView
-        android:id="@+id/TDP"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.2"
-        android:layout_height="wrap_content"
-        android:text="Total Days Playing"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/EditBTN"
-        app:layout_constraintStart_toStartOf="@id/purpleback"
-        app:layout_constraintEnd_toStartOf="@id/TSC" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/TSC"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.2"
-        android:layout_height="wrap_content"
-        android:text="Total Steps Created"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/EditBTN"
-        app:layout_constraintStart_toEndOf="@id/TDP"
-        app:layout_constraintEnd_toStartOf="@id/ASD" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+                android:addStatesFromChildren="false">
 
-    <TextView
-        android:id="@+id/ASD"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.2"
-        android:layout_height="wrap_content"
-        android:text="Average Steps/Day"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/EditBTN"
-        app:layout_constraintStart_toEndOf="@id/TSC"
-        app:layout_constraintEnd_toStartOf="@id/TDT" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/white_top_box_account"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/TDT"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.2"
-        android:layout_height="wrap_content"
-        android:text="Total Distance Travelled"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/EditBTN"
-        app:layout_constraintStart_toEndOf="@id/ASD"
-        app:layout_constraintEnd_toStartOf="@id/ADD" />
+                    <TextView
+                        android:id="@+id/lblStats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:elevation="40dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Your Statistics"
+                        android:textAlignment="center"
+                        android:textColor="#B5B9FF"
+                        android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/ADD"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.2"
-        android:layout_height="wrap_content"
-        android:text="Average Distance/Day"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/EditBTN"
-        app:layout_constraintStart_toEndOf="@id/TDT"
-        app:layout_constraintEnd_toEndOf="@id/purpleback" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/TDPcount"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.2"
-        android:layout_height="wrap_content"
-        android:text="100 Days"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="11sp"
-        app:layout_constraintTop_toBottomOf="@id/TDP"
-        app:layout_constraintStart_toStartOf="@id/purpleback"
-        app:layout_constraintEnd_toStartOf="@id/TSC" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/TSCcount"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.2"
-        android:layout_height="wrap_content"
-        android:text="70000 Steps"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="11sp"
-        app:layout_constraintTop_toBottomOf="@id/TSC"
-        app:layout_constraintStart_toEndOf="@id/TDP"
-        app:layout_constraintEnd_toStartOf="@id/ASD" />
+                            <TextView
+                                android:id="@+id/lblTotalEXP"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Total EXP"
+                                android:textAlignment="center"
+                                android:textColor="#F2C75B"
+                                android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/ASDcount"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.2"
-        android:layout_height="wrap_content"
-        android:text="2000 Steps/Day"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="11sp"
-        app:layout_constraintTop_toBottomOf="@id/ASD"
-        app:layout_constraintStart_toEndOf="@id/TSC"
-        app:layout_constraintEnd_toStartOf="@id/TDT" />
+                            <TextView
+                                android:id="@+id/lblTotalEXPResult"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="123"
+                                android:textAlignment="center"
+                                android:textColor="#F2C75B"
+                                android:textSize="48sp" />
 
-    <TextView
-        android:id="@+id/TDTcount"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.2"
-        android:layout_height="wrap_content"
-        android:text="123456789 KM"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="11sp"
-        app:layout_constraintTop_toBottomOf="@id/TDT"
-        app:layout_constraintStart_toEndOf="@id/ASD"
-        app:layout_constraintEnd_toStartOf="@id/ADD" />
+                            <TextView
+                                android:id="@+id/lblkm"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Kilometer"
+                                android:textAlignment="center"
+                                android:textColor="#F2C75B"
+                                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/ADDcount"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.2"
-        android:layout_height="wrap_content"
-        android:text="200 KM/Day"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="11sp"
-        app:layout_constraintTop_toBottomOf="@id/ADD"
-        app:layout_constraintStart_toEndOf="@id/TDT"
-        app:layout_constraintEnd_toEndOf="@id/purpleback" />
+                        </LinearLayout>
 
-    <ImageView
-        android:id="@+id/ViewMore"
-        android:layout_width="182dp"
-        android:layout_height="22dp"
-        android:src="@drawable/ic_viewmore"
-        android:scaleType="fitXY"
-        android:layout_marginTop="15dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/ASDcount"
-        app:layout_constraintStart_toStartOf="@id/purpleback"
-        app:layout_constraintEnd_toEndOf="@id/purpleback"/>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="#F2C75B" />
 
-    <TextView
-        android:id="@+id/SYDT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SET YOUR DAILY TARGET"
-        android:gravity="center"
-        android:textColor="#c2bdfb"
-        android:textSize="30sp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/purpleback"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/Line1"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.9"
-        android:layout_height="2dp"
-        android:src="@drawable/ic_line"
-        android:scaleType="fitXY"
-        android:layout_marginTop="3dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/SYDT"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+                            <TextView
+                                android:id="@+id/lblTotalScore"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Total Score"
+                                android:textAlignment="center"
+                                android:textColor="#F2C75B"
+                                android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/Notif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NOTIFICATION"
-        android:gravity="center"
-        android:textColor="#c2bdfb"
-        android:textSize="30sp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/SYDT"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+                            <TextView
+                                android:id="@+id/textView10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="123"
+                                android:textAlignment="center"
+                                android:textColor="#F2C75B"
+                                android:textSize="48sp" />
 
-    <ImageView
-        android:id="@+id/Line2"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.9"
-        android:layout_height="2dp"
-        android:src="@drawable/ic_line"
-        android:scaleType="fitXY"
-        android:layout_marginTop="3dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/Notif"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+                            <TextView
+                                android:id="@+id/lblpoint"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
 
-    <TextView
-        android:id="@+id/Syn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SYNCHRONIZATION"
-        android:gravity="center"
-        android:textColor="#c2bdfb"
-        android:textSize="30sp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/Notif"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Points"
+                                android:textAlignment="center"
+                                android:textColor="#F2C75B"
+                                android:textSize="16sp" />
 
-    <ImageView
-        android:id="@+id/Line3"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.9"
-        android:layout_height="2dp"
-        android:src="@drawable/ic_line"
-        android:scaleType="fitXY"
-        android:layout_marginTop="3dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/Syn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+                        </LinearLayout>
+                    </LinearLayout>
 
-    <TextView
-        android:id="@+id/CWF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CONNECT WITH FRIEND"
-        android:gravity="center"
-        android:textColor="#c2bdfb"
-        android:textSize="30sp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/Syn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+                    <Button
+                        android:id="@+id/elevatedButton"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:text="See Rank Leaderboard"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+                        android:textSize="12sp" />
 
-    <ImageView
-        android:id="@+id/Line4"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.9"
-        android:layout_height="2dp"
-        android:src="@drawable/ic_line"
-        android:scaleType="fitXY"
-        android:layout_marginTop="3dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/CWF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/Lang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LANGUAGE"
-        android:gravity="center"
-        android:textColor="#c2bdfb"
-        android:textSize="30sp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/CWF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="396dp">
 
-    <ImageView
-        android:id="@+id/Line5"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.9"
-        android:layout_height="2dp"
-        android:src="@drawable/ic_line"
-        android:scaleType="fitXY"
-        android:layout_marginTop="3dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/Lang"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/white_top_box_account"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/lblYourAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:elevation="40dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Your Account"
+                        android:textAlignment="center"
+                        android:textColor="#B5B9FF"
+                        android:textSize="24sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/lblUserID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:paddingLeft="30dp"
+                            android:text="UserID"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/lblUserID_Result"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:paddingRight="30dp"
+                            android:text="496732"
+                            android:textAlignment="textEnd" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/lblUsername"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:paddingLeft="30dp"
+                            android:text="UserID"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/lblUsername_Result"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:paddingRight="30dp"
+                            android:text="496732"
+                            android:textAlignment="textEnd" />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="233dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="90dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/white_top_box_account"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/lblTerakhirDiupdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:elevation="40dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Your Statistics"
+                        android:textAlignment="center"
+                        android:textColor="#B5B9FF"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
+
