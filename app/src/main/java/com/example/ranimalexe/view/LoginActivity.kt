@@ -1,5 +1,6 @@
 package com.example.ranimalexe.view
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -11,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.ranimalexe.R
 import com.google.firebase.auth.FirebaseAuth
 import android.content.Intent
+import android.content.SharedPreferences
 
 
 class LoginActivity : AppCompatActivity() {
@@ -44,6 +46,18 @@ class LoginActivity : AppCompatActivity() {
 //            } else {
                 loginUser(email, password)
 //            }
+
+            fun saveUserSession(context: Context) {
+                val currentUser = FirebaseAuth.getInstance().currentUser
+                if (currentUser != null) {
+                    val userId = currentUser.uid
+                    val sharedPreferences: SharedPreferences = context.getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putString("user_id", userId) // Menyimpan uid
+                    editor.apply()
+                }
+            }
+
         }
     }
 

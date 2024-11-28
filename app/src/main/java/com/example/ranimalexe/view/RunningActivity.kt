@@ -18,6 +18,10 @@ import com.example.ranimalexe.service.TrackingService
 import com.example.ranimalexe.viewmodel.RunningViewModel
 import android.widget.LinearLayout
 import android.location.Location
+import android.util.Log
+import com.example.ranimalexe.model.Users
+import com.example.ranimalexe.service.FirestoreApi
+import com.google.firebase.auth.FirebaseAuth
 
 
 class RunningActivity : AppCompatActivity() {
@@ -25,6 +29,11 @@ class RunningActivity : AppCompatActivity() {
     private val runningViewModel: RunningViewModel by viewModels()
     private var trackingService: TrackingService? = null
     private var isServiceBound = false
+
+    private lateinit var firestoreApi: FirestoreApi
+    private lateinit var auth: FirebaseAuth
+
+
 
     // ServiceConnection untuk menghubungkan dengan TrackingService
     private val serviceConnection = object : ServiceConnection {
@@ -46,6 +55,17 @@ class RunningActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bottom_navbar)
 
+        val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+        val userId = sharedPreferences.getInt("user_id", -1) // Mengambil user_id, default -1 jika tidak ada
+        if (userId != -1) {
+            // Pengguna sudah login, lanjutkan ke aktivitas berikutnya
+        } else {
+            // Pengguna belum login, tampilkan halaman login
+        }
+
+        auth = FirebaseAuth.getInstance()
+        firestoreApi = FirestoreApi()
+
         // Menyesuaikan padding sistem bar
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -60,7 +80,13 @@ class RunningActivity : AppCompatActivity() {
 
         // Menyiapkan pemanggilan fragment
         val navProfile = findViewById<LinearLayout>(R.id.nav_profile)
-        navProfile.setOnClickListener { loadFragment(fragment_profile()) }
+        navProfile.setOnClickListener {
+            // Misalnya userId disimpan di SharedPreferences atau session
+            val userId = userId  // Ganti dengan userId yang sesuai
+
+            // Memanggil API untuk mendapatkan data pengguna
+            getUserData(userId)
+        }
 
         val navEvent = findViewById<LinearLayout>(R.id.nav_event)
         navEvent.setOnClickListener { loadFragment(fragment_event()) }
@@ -74,19 +100,10 @@ class RunningActivity : AppCompatActivity() {
         val navHome = findViewById<LinearLayout>(R.id.nav_home)
         navHome.setOnClickListener { loadFragment(fragment_home()) }
 
-//        // Start and bind TrackingService
-//        val serviceIntent = Intent(this, TrackingService::class.java)
-//        startService(serviceIntent)
-//        bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
-
-//        // Observasi jarak di ViewModel
-//        runningViewModel.distance.observe(this, Observer { totalDistance ->
-//            // Mendapatkan fragment_home dan memperbarui jarak
-//            val fragment = supportFragmentManager.findFragmentByTag(fragment_home::class.java.simpleName)
-//            if (fragment is fragment_home) {
-//                fragment.updateDistance(totalDistance)
-//            }
-//        })
+        // Start and bind TrackingService
+        //val serviceIntent = Intent(this, TrackingService::class.java)
+        //startService(serviceIntent)
+        //bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
     }
 
     override fun onDestroy() {
@@ -106,5 +123,26 @@ class RunningActivity : AppCompatActivity() {
 
     private fun calculateDistance(location: Location): Float {
         return 0f  // Ganti dengan perhitungan jarak yang sesuai
+    }
+
+    // Fungsi untuk memanggil API dan mendapatkan data pengguna
+    private fun getUserData(userId: Int) {
+       firestoreApi.getUsersById(userId).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val user = task.result?.toObject(Users::class.java)
+                if (user != null) {
+                    // Kirimkan data user ke fragment_profile
+                    val fragment = fragment_profile().apply {
+                        arguments = Bundle().apply {
+                            putSerializable("user", user)  // Kirim objek user ke fragment
+                        }
+                    }
+                    loadFragment(fragment)  // Load fragment_profile dengan data pengguna
+                }
+            } else {
+                // Tangani error jika gagal mendapatkan data
+                Log.e("RunningActivity", "Error getting user data: ${task.exception}")
+            }
+        }
     }
 }
