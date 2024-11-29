@@ -481,7 +481,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="308dp">
+                android:layout_height="349dp">
 
                 <com.google.android.material.divider.MaterialDivider
                     android:layout_width="match_parent"
@@ -490,181 +490,27 @@
                     android:layout_marginEnd="30dp"
                     android:layout_marginBottom="20dp"
                     android:layout_weight="0.05"
-                    app:dividerColor="#ffffff"/>
+                    app:dividerColor="#ffffff"
+                    app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginTop="30dp"
                     android:layout_marginRight="30dp"
-                    android:layout_weight="0.02"
-                    android:background="@drawable/white_top_box_account"
-                    android:orientation="vertical"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="32dp">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/textView9"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Berikan Makanan Kesukaannya"
-                        android:textAlignment="center" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_gravity="center_horizontal"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageButton
-                                android:id="@+id/Burgerbtn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="55dp"
-                                android:background="#FFFFFF"
-                                android:scaleType="fitCenter"
-                                android:src="@drawable/borgir" />
-
-                            <TextView
-                                android:id="@+id/txtBurger"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="20dp"
-                                android:fontFamily="@font/montserrat_bold"
-                                android:text="100"
-                                android:textAlignment="center"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageButton
-                                android:id="@+id/Sausagebtn"
-                                android:layout_width="match_parent"
-                                android:layout_height="55dp"
-                                android:background="#FFFFFF"
-                                android:scaleType="fitCenter"
-                                android:src="@drawable/sausage" />
-
-                            <TextView
-                                android:id="@+id/txtSausage"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="20dp"
-                                android:fontFamily="@font/montserrat_bold"
-                                android:text="50"
-                                android:textAlignment="center"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageButton
-                                android:id="@+id/Skewerbtn"
-                                android:layout_width="match_parent"
-                                android:layout_height="55dp"
-                                android:background="#FFFFFF"
-                                android:scaleType="fitCenter"
-                                android:src="@drawable/skewer" />
-
-                            <TextView
-                                android:id="@+id/lblSkewer"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="20dp"
-                                android:fontFamily="@font/montserrat_bold"
-                                android:text="25"
-                                android:textAlignment="center"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageButton
-                                android:id="@+id/Chickenbtn"
-                                android:layout_width="match_parent"
-                                android:layout_height="55dp"
-                                android:background="#FFFFFF"
-                                android:scaleType="fitCenter"
-                                android:src="@drawable/chickenstick" />
-
-                            <TextView
-                                android:id="@+id/lblChicken"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="20dp"
-                                android:fontFamily="@font/montserrat_bold"
-                                android:text="10"
-                                android:textAlignment="center"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageButton
-                                android:id="@+id/Steakbtn"
-                                android:layout_width="match_parent"
-                                android:layout_height="55dp"
-                                android:background="#FFFFFF"
-                                android:scaleType="fitCenter"
-                                android:src="@drawable/steak" />
-
-                            <TextView
-                                android:id="@+id/lblSteak"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="20dp"
-                                android:fontFamily="@font/montserrat_bold"
-                                android:text="5"
-                                android:textAlignment="center"
-                                android:textSize="16sp"
-                                android:layout_marginTop="5dp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="10dp" />
                 </LinearLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
