@@ -46,7 +46,7 @@ class fragment_shop : Fragment() {
     private lateinit var shellAdapter: ShopShellAdapter
     private lateinit var shellViewModel: ShellViewModel
     private lateinit var spinStatus: TextView
-    private lateinit var currentExp: TextView
+    private lateinit var currentEXP: TextView
 
 
 
@@ -74,23 +74,25 @@ class fragment_shop : Fragment() {
         val spinButton: Button = binding.findViewById(R.id.spinButton)
         val spinner: View = binding.findViewById(R.id.spinnerWheel)
         spinStatus = binding.findViewById(R.id.spinStatus)
-        currentExp = binding.findViewById(R.id.bindEXP)
 
         shopViewModel = ViewModelProvider(this)[ShopViewModel::class.java]
         hatViewModel = ViewModelProvider(this)[HatViewModel::class.java]
         shellViewModel = ViewModelProvider(this)[ShellViewModel::class.java]
 
-//        shopViewModel.fruitList.observe(viewLifecycleOwner) { shopItems ->
-//            shopAdapter = ShopAdapter(shopItems) { selectedFood ->
-//                val message = "Congrats! You got an item!"
-//                val builder = AlertDialog.Builder(requireContext())
-//                    .setMessage(message)
-//                    .setPositiveButton("OK") { dialog, _ ->
-//                        dialog.dismiss()
-//                    }
-//            }
-//            recyclerView.adapter = shopAdapter
-//        }
+        currentEXP = binding.findViewById(R.id.bindEXP)
+        currentEXP.text = UserData.user.currentExp.toString()
+
+        shopViewModel.fruitList.observe(viewLifecycleOwner) { shopItems ->
+            shopAdapter = ShopAdapter(shopItems) { selectedFood ->
+                val message = "Congrats! You got an item!"
+                val builder = AlertDialog.Builder(requireContext())
+                    .setMessage(message)
+                    .setPositiveButton("OK") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+            }
+            recyclerView.adapter = shopAdapter
+        }
 
 //        hatViewModel.filteredHat.observe(viewLifecycleOwner) { hatItems ->
 //            hatAdapter = ShopHatAdapter(hatItems) { selectedHat ->
@@ -103,8 +105,6 @@ class fragment_shop : Fragment() {
 //            }
 //            recyclerViewHat.adapter = hatAdapter
 //        }
-
-        currentExp.text = UserData.user.currentExp.toString()
 
         hatViewModel.filteredHat.observe(viewLifecycleOwner) { hatItems ->
             hatAdapter = ShopHatAdapter(

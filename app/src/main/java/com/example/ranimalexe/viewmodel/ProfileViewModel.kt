@@ -53,11 +53,12 @@ class ProfileViewModel : ViewModel() {
             totalExp = 500,
             totalScore = 1500
         )
-
-        // Simulasi pemanggilan API yang berhasil
-//        _user.value = dummyUser
-
-        // Jika Anda ingin menambahkan simulasi kegagalan, gunakan kode berikut:
-        // _user.value = null
+        _user.value = dummyUser
     }
+    // Simulasi pemanggilan API yang berhasil
+
+
+    // Jika Anda ingin menambahkan simulasi kegagalan, gunakan kode berikut:
+//     _user.value = null
 }
+

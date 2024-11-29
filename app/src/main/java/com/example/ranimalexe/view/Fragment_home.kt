@@ -15,9 +15,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.ranimalexe.R
 import com.example.ranimalexe.service.TrackingService
 import com.example.ranimalexe.storage.UserData
+import com.example.ranimalexe.view.adapter.UsableFoodAdapter
 import com.example.ranimalexe.viewmodel.PetViewModel
 import com.example.ranimalexe.viewmodel.RunningViewModel
 
@@ -40,6 +43,9 @@ class fragment_home : Fragment() {
     // Menyimpan instance TrackingService
     private var trackingService: TrackingService? = null
     private var isTracking = false
+
+    private lateinit var foodRecyclerView: RecyclerView
+    private lateinit var foodAdapter: UsableFoodAdapter
 
     // Menyimpan binded service (untuk mengakses service)
     private val trackingServiceConnection = object : ServiceConnection {
@@ -117,6 +123,14 @@ class fragment_home : Fragment() {
                 stopTracking()
             }
         }
+
+        foodRecyclerView = rootView.findViewById(R.id.foodrecyclerView)
+        foodRecyclerView.layoutManager = LinearLayoutManager(context)
+
+        foodAdapter = UsableFoodAdapter(UserData.foodItems.toList()) {
+
+        }
+        foodRecyclerView.adapter = foodAdapter;
 
         return rootView
     }

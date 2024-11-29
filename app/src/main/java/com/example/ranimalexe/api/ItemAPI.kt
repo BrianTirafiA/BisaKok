@@ -1,17 +1,17 @@
 package com.example.ranimalexe.api
 
 import android.util.Log
-import com.example.ranimalexe.model.ShopItem
+import com.example.ranimalexe.model.FoodItem
 import com.google.firebase.firestore.toObject
 import kotlinx.coroutines.*
 
 class ItemAPI {
 
-    suspend fun getShopItems() : MutableList<ShopItem> {
+    suspend fun getShopItems() : MutableList<FoodItem> {
         var success : Boolean = false
         var faulted : Boolean = false
 
-        var list : MutableList<ShopItem> = mutableListOf()
+        var list : MutableList<FoodItem> = mutableListOf()
 
         Log.d("Test Log", "Firebase starting")
 
@@ -25,7 +25,7 @@ class ItemAPI {
                 for (doc in qs){
                     Log.d("Test Log", doc.id)
                     try {
-                        var item = doc.toObject<ShopItem>()
+                        var item = doc.toObject<FoodItem>()
                         Log.d("Test Log", item.toString())
                     }
                     catch (e : Exception) {
