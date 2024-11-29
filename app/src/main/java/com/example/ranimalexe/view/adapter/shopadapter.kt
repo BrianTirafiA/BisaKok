@@ -62,12 +62,7 @@ class ShopHatAdapter(
             itemImage.setImageResource(ShopCustom.imageResId)
             itemPrice.text = ShopCustom.price.toString()
             itemView.setOnClickListener {
-                if (!ShopCustom.status) {
-                    onUnlockHat(ShopCustom) // Call the method to unlock the hat
-                }
-                onHatSelected(ShopCustom)
-                hatItemList[position].status = true
-                notifyItemChanged(position)
+                UserData.TryBuyHat(ShopCustom.id)
             }
         }
     }

@@ -203,6 +203,7 @@ class fragment_shop : Fragment() {
         }
 
         val message = "Congrats! You got a $category item number $randomNumber"
+        UserData.UnlockHat(randomNumber)
         val builder = AlertDialog.Builder(requireContext())
             .setTitle(category)
             .setMessage(message)

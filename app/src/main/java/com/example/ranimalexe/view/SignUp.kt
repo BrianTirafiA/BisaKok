@@ -45,6 +45,7 @@ class SignUp : AppCompatActivity() {
         val petNameEditText = findViewById<EditText>(R.id.petNameBox)
 
         val MakeAccButton = findViewById<Button>(R.id.MakeAccButton)
+
         MakeAccButton.setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
@@ -52,64 +53,21 @@ class SignUp : AppCompatActivity() {
             val petName = petNameEditText.text.toString()
             val age = ageEditText.text.toString()
 
-            val newUser = Users(
-                userId = 0, // userId akan terisi otomatis
-                username = username,
-                password = password, // Jangan lupa enkripsi password sebelum menyimpannya!
-                age = age.toInt(),
-                email = email,
-                totalExp = 0,
-                totalScore = 0,
-                currentExp = 0
-            )
-
-            val newPet = Pet(
-                id = 0,
-                name = petName,
-                health = 100
-            )
-
-            // Validasi input
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please enter both email and password", Toast.LENGTH_SHORT)
-                    .show()
-                return@setOnClickListener
-            }
-
-            // Panggil method untuk mendaftar dengan email dan password
-            signUpWithEmail(email, password)
-
-            firestoreApi.writeUser(newUser)
-                .addOnSuccessListener {
-                    // Jika berhasil
-                    Toast.makeText(this, "Sign Up User Successful", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, SignUp::class.java))
-                    finish()
-                }
-                .addOnFailureListener { exception ->
-                    // Jika gagal
-                    Toast.makeText(this, "Sign Up User Failed", Toast.LENGTH_SHORT).show()
-                    Log.e("Signup", "Error: ${exception.message}")
-                }
-
-            firestoreApi.writePet(newPet)
-                .addOnSuccessListener {
-                // Jika berhasil
-                Toast.makeText(this, "Sign Up Pet Successful", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, SignUp::class.java))
-                finish()
-                }
-                .addOnFailureListener { exception ->
-                    // Jika gagal
-                    Toast.makeText(this, "Sign Up Pet Failed", Toast.LENGTH_SHORT).show()
-                    Log.e("Signup", "Error: ${exception.message}")
-                }
+//            // Panggil method untuk mendaftar dengan email dan password
+            
+            signUpWithEmail(email, password, username, petName, age)
 
         }
     }
 
     // Fungsi untuk signup menggunakan email dan password
-    private fun signUpWithEmail(email: String, password: String) {
+    private fun signUpWithEmail(
+        email: String,
+        password: String,
+        username: String,
+        petName: String,
+        age: String
+    ) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -117,16 +75,68 @@ class SignUp : AppCompatActivity() {
                     val user = auth.currentUser
                     Toast.makeText(baseContext, "Signup successful", Toast.LENGTH_SHORT).show()
 
-                    // Pindah ke halaman selanjutnya (RunningActivity)
-                    val intent = Intent(this, RunningActivity::class.java)
-                    startActivity(intent)
-                    finish()  // Hapus activity signup dari stack
+                    // Pastikan UID sudah ada setelah pengguna terdaftar
+                    val uid = user?.uid
+
+                    // Membuat objek newUser dengan UID yang baru dibuat
+                    val newUser = Users(
+                        userId = 0, // userId bisa diotomatisasi atau dikelola sesuai kebutuhan
+                        username = username,
+                        password = password, // Jangan lupa enkripsi password sebelum menyimpannya!
+                        age = age.toInt(),
+                        email = email,
+                        totalExp = 0,
+                        totalScore = 0,
+                        currentExp = 0
+                    )
+
+                    val newPet = Pet(
+                        id = 0,  // ID pet bisa disesuaikan atau diotomatisasi
+                        name = petName,
+                        health = 100
+                    )
+
+                    // Simpan data pengguna ke Firestore dengan UID sebagai nama document
+
+                    firestoreApi.writeUser(newUser)
+                        .addOnSuccessListener {
+                            // Menyimpan data pet setelah user berhasil disimpan
+                            val newPet = Pet(
+                                id = 0,
+                                name = petName,
+                                health = 100
+                            )
+
+                            firestoreApi.writePet(newPet)
+                                .addOnSuccessListener {
+                                    // Jika sukses, pindah ke RunningActivity
+                                    val intent = Intent(this, RunningActivity::class.java)
+                                    startActivity(intent)
+                                    finish()  // Hapus activity signup dari stack
+                                }
+                                .addOnFailureListener { exception ->
+                                    // Jika gagal simpan pet
+                                    Toast.makeText(this, "Sign Up Pet Failed", Toast.LENGTH_SHORT)
+                                        .show()
+                                    Log.e("Signup", "Error saving pet data: ${exception.message}")
+                                }
+                        }
+                        .addOnFailureListener { exception ->
+                            // Jika gagal simpan user
+                            Toast.makeText(this, "Sign Up User Failed", Toast.LENGTH_SHORT)
+                                .show()
+                            Log.e("Signup", "Error saving user data: ${exception.message}")
+                        }
+
                 } else {
                     // Jika signup gagal, tampilkan error
-                    Toast.makeText(baseContext, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext,
+                        "Authentication failed: ${task.exception?.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
     }
-
 
 }

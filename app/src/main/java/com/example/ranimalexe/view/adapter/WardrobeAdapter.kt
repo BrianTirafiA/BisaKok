@@ -24,6 +24,9 @@ class HatAdapter(
             itemImage.setImageResource(wardrobeItem.imageResId)
             if (!wardrobeItem.status) {
                 // Disable click and show overlay
+//                lockOverlay.visibility = View.GONE
+//                itemView.isEnabled = true
+//                itemView.alpha = 1.0f
                 lockOverlay.visibility = View.VISIBLE
                 itemView.isEnabled = false
                 itemView.alpha = 0.5f // Make it visually distinct

@@ -32,6 +32,12 @@ class HatViewModel : ViewModel() {
     fun refreshHats() {
         TODO("Not yet implemented")
     }
+
+    fun unlockHat(hatId: Int) {
+        _allHats.value = _allHats.value?.map {
+            if (it.id == hatId) it.copy(status = true) else it
+        }
+    }
 }
 
 class ShellViewModel : ViewModel() {
@@ -53,6 +59,8 @@ class ShellViewModel : ViewModel() {
     fun filterShellsById(range: IntRange) {
         _filteredShells.value = _allShells.value?.filter { it.id in range }
     }
+
+
 }
 
 

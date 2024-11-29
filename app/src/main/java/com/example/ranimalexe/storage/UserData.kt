@@ -5,7 +5,7 @@ import com.example.ranimalexe.R
 import com.example.ranimalexe.model.*
 
 object UserData {
-    var user : Users = Users();
+    var user : Users = Users(currentExp = 1000,totalExp = 1000);
     var pet : Pet = Pet();
     var foodInventory : MutableList<FoodInventoryItem> = mutableListOf();
     var wardrobeInventory : MutableList<WardrobeinventoryItem> = mutableListOf();
@@ -194,6 +194,46 @@ object UserData {
             return true;
         }
         Log.d("User Data Log", "Buying $foodId failed");
+        return false;
+    }
+
+    fun TryBuyHat(hatId: Int) : Boolean {
+
+        var hat : Hat? = hats.find { hatId == it.id }
+
+        Log.d("User Data Log", "Buying $hatId priced ${hat?.price} with EXP: ${user.currentExp}");
+
+        if (hat == null){
+            Log.d("User Data Log", "Buying $hatId null");
+            return false;
+        }
+
+        if (TrySpendExp(hat.price)){
+            hat.status = true;
+            Log.d("User Data Log", "Buying $hatId success");
+            return true;
+        }
+        Log.d("User Data Log", "Buying $hatId failed");
+        return false;
+    }
+
+    fun UnlockHat(hatId: Int) : Boolean {
+
+        var hat : Hat? = hats.find { hatId == it.id }
+
+        Log.d("User Data Log", "Buying $hatId priced ${hat?.price} with EXP: ${user.currentExp}");
+
+        if (hat == null){
+            Log.d("User Data Log", "Buying $hatId null");
+            return false;
+        }
+
+        if (TrySpendExp(50)){
+            hat.status = true;
+            Log.d("User Data Log", "Buying $hatId success");
+            return true;
+        }
+        Log.d("User Data Log", "Buying $hatId failed");
         return false;
     }
 

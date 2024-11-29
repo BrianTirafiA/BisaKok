@@ -233,7 +233,8 @@
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
                         android:layout_weight="0.05"
-                        app:dividerColor="#ffffff" />
+                        app:dividerColor="#ffffff" >
+                    </com.google.android.material.divider.MaterialDivider>"
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -261,7 +262,6 @@
                                 android:gravity="center"
                                 android:paddingLeft="20dp"
                                 android:text="Activity time"
-                                android:textAlignment="textStart"
                                 android:textSize="16sp" />
 
                             <TextView
@@ -275,7 +275,6 @@
                                 android:gravity="center"
                                 android:paddingRight="20dp"
                                 android:text="21:59:600"
-                                android:textAlignment="textEnd"
                                 android:textSize="20sp" />
 
                         </LinearLayout>
@@ -327,7 +326,8 @@
                         android:layout_marginEnd="30dp"
                         android:layout_marginBottom="20dp"
                         android:layout_weight="0.05"
-                        app:dividerColor="#ffffff" />
+                        app:dividerColor="#ffffff" >
+                    </com.google.android.material.divider.MaterialDivider>"
 
                 </LinearLayout>
 
@@ -421,7 +421,8 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     app:layout_constraintTop_toBottomOf="@+id/indicatorKesehatan"
-                    tools:layout_editor_absoluteX="30dp" />
+                    tools:layout_editor_absoluteX="30dp" >
+                </com.google.android.material.divider.MaterialDivider>"
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -492,6 +493,7 @@
                     android:layout_weight="0.05"
                     app:dividerColor="#ffffff"
                     app:layout_constraintTop_toTopOf="parent">
+                </com.google.android.material.divider.MaterialDivider>"
 
                 <LinearLayout
                     android:layout_width="match_parent"

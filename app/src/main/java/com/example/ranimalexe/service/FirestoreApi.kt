@@ -1,7 +1,10 @@
 package com.example.ranimalexe.service
+
+import android.util.Log
 import com.example.ranimalexe.model.Pet
 import com.example.ranimalexe.model.Users
 import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FieldValue
@@ -13,7 +16,8 @@ class FirestoreApi {
 
     private val db = FirebaseFirestore.getInstance()
 
-    //USER
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<USER>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\\
+
     private fun getNextUserId(): Task<Int> {
         val usersRef = db.collection("Users")
         return usersRef.orderBy("userId", Query.Direction.DESCENDING).limit(1)
@@ -30,15 +34,24 @@ class FirestoreApi {
     }
 
     fun writeUser(user: Users): Task<Void> {
-        return getNextUserId().continueWithTask { task ->
-            val newUserId = task.result
-            val newUser = user.copy(userId = newUserId ?: 1)
+        // Mengambil UID pengguna yang terdaftar dari Firebase Authentication
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val uid = currentUser?.uid
 
-            // Menulis data user ke Firestore
-            val userRef = db.collection("Users").document(newUserId.toString())
-            userRef.set(newUser)
-        }
+        // Jika UID tidak null, simpan data user dengan UID sebagai ID dokumen di Firestore
+        if (uid != null) {
+            val userRef =
+                db.collection("Users").document(uid)  // Menggunakan UID sebagai ID dokumen
+            return userRef.set(user.copy(userId = 0))  // Menyimpan user dengan UID sebagai ID dokumen
+        } else {
+            // Jika UID null, kembalikan task gagal
+            Log.d("SignUp", "UID not found")
+            val exception = Exception("UID is null. User is not authenticated.")
+            val task = Tasks.forException<Void>(exception)  // Menghasilkan Task yang gagal
+            return task        }
     }
+
+
 
     //PET
     private fun getNextPetId(): Task<Int> {
