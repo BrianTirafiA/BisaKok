@@ -308,7 +308,7 @@
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
                             android:text="Pause" />
-iya
+
                         <Button
                             android:id="@+id/btnStop"
                             style="@style/Widget.Material3.Button.TonalButton"
@@ -395,6 +395,7 @@ iya
                             android:textAlignment="center"
                             android:textSize="16sp" />
 
+
                     </LinearLayout>
 
                     <com.google.android.material.slider.Slider
@@ -406,9 +407,7 @@ iya
                         android:valueTo="100.0"
                         android:layout_marginBottom="20dp"
                         app:trackColor="#1B7979"
-                        app:thumbColor="#D9D9D9"
-                        android:contentDescription="Slider untuk mengatur tingkat kesehatan"
-                        />
+                        app:thumbColor="#D9D9D9"/>
 
 
                 </LinearLayout>
@@ -482,7 +481,7 @@ iya
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="308dp">
+                android:layout_height="349dp">
 
                 <com.google.android.material.divider.MaterialDivider
                     android:layout_width="match_parent"
@@ -491,8 +490,8 @@ iya
                     android:layout_marginEnd="30dp"
                     android:layout_marginBottom="20dp"
                     android:layout_weight="0.05"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:dividerColor="#ffffff" />
+                    app:dividerColor="#ffffff"
+                    app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -503,7 +502,7 @@ iya
                     android:orientation="horizontal">
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/foodrecyclerView"
+                        android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -511,6 +510,7 @@ iya
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="10dp" />
                 </LinearLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

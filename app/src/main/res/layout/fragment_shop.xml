@@ -198,7 +198,7 @@
                         android:layout_height="25dp"
                         app:layout_constraintBottom_toTopOf="@id/spinnerLayout"
                         android:layout_marginTop="10dp"
-                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginBottom="-10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:background="@drawable/polygon"
@@ -219,7 +219,7 @@
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:layout_gravity="center"
-                            android:background="@drawable/spinner_background"
+                            android:background="@drawable/wheels"
                             android:elevation="8dp" />
 
                         <LinearLayout

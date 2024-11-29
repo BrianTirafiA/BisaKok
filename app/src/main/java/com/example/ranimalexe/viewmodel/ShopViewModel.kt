@@ -16,6 +16,13 @@ class ShopViewModel : ViewModel() {
     }
 
     private fun loadFruits() {
+//        _fruitList.value = listOf(
+//            FoodItem(1, "Burger", R.drawable.borgir, 10),
+//            FoodItem(2, "Sausage", R.drawable.sausage, 20),
+//            FoodItem(3, "Skewer", R.drawable.skewer, 30),
+//            FoodItem(4, "Chicken", R.drawable.chickenstick, 40),
+//            FoodItem(5, "Steak", R.drawable.steak, 50),
+//        )
         _fruitList.value = UserData.foodItems
     }
 }
