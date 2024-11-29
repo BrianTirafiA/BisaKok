@@ -64,6 +64,10 @@ class HatViewModel : ViewModel() {
             if (it.id == hatId) it.copy(status = true) else it
         }
     }
+
+    fun refreshHats() {
+        TODO("Not yet implemented")
+    }
 }
 
 class ShellViewModel : ViewModel() {

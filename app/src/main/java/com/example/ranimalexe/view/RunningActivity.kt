@@ -42,6 +42,7 @@ class RunningActivity : AppCompatActivity() {
             trackingService = binder.getService()
             isServiceBound = true
             // Observe data lokasi yang dikirim oleh TrackingService dan update ViewModel
+            runningViewModel.observeTotalDistanceFromService(trackingService!!)
             runningViewModel.observeDistanceFromService(trackingService!!)
         }
 
@@ -87,9 +88,9 @@ class RunningActivity : AppCompatActivity() {
         navHome.setOnClickListener { loadFragment(fragment_home()) }
 
         // Start and bind TrackingService
-        val serviceIntent = Intent(this, TrackingService::class.java)
-        startService(serviceIntent)
-        bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
+//        val serviceIntent = Intent(this, TrackingService::class.java)
+//        startService(serviceIntent)
+//        bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
     }
 
     override fun onDestroy() {

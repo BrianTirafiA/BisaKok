@@ -38,7 +38,7 @@ class fragment_profile : Fragment() {
 
         // Inisialisasi komponen UI
         Log.d("FragmentProfile", "onCreateView: Initializing UI components")
-        editProfile = view.findViewById(R.id.editProfile)
+//        editProfile = view.findViewById(R.id.editProfile)
         username = view.findViewById(R.id.username)
         username2 = view.findViewById(R.id.lblUsername_Result)
         email = view.findViewById(R.id.email)

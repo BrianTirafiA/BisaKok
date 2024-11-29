@@ -23,6 +23,8 @@ class TrackingService : Service() {
 //    val currentLocation: LiveData<Location> get() = _currentLocation
 
     private val _totalDistance = MutableLiveData<Float>()
+    private val _distance = MutableLiveData<Float>()
+
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
@@ -37,6 +39,8 @@ class TrackingService : Service() {
     override fun onCreate() {
         super.onCreate()
         Log.d("Tracker", "Service started")
+
+        totalDistance = 0.0f
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
@@ -56,8 +60,8 @@ class TrackingService : Service() {
 
                     // Jika previousLocation ada, hitung jaraknya
                     previousLocation?.let { previousLoc ->
-                        distance = previousLoc.distanceTo(currentLocation)/1000
-                        if (distance < 0.003){
+                        distance = previousLoc.distanceTo(currentLocation)
+                        if (distance < 3){
                             distance=0.0f;
                         }
                         else{
@@ -73,6 +77,9 @@ class TrackingService : Service() {
 
                     // Kirim lokasi terkini ke LiveData
                     _totalDistance.postValue(totalDistance)
+                    getTotalDistanceLiveData()
+                    _distance.postValue(distance)
+                    getDistanceLiveData()
 
                     // Simpan lokasi saat ini sebagai previousLocation untuk update berikutnya
                     previousLocation = currentLocation
@@ -95,15 +102,19 @@ class TrackingService : Service() {
         stopLocationUpdates()
     }
 
-    private fun startLocationUpdates() {
+    // In TrackingService class
+    fun startLocationUpdates() {  // Change this from private to public or internal
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
         }
     }
 
-    private fun stopLocationUpdates() {
+
+    // In TrackingService class
+    fun stopLocationUpdates() {  // Change this from private to public or internal
         fusedLocationProviderClient.removeLocationUpdates(locationCallback)
     }
+
 
     // Binder untuk mengakses TrackingService
     inner class LocalBinder : Binder() {
@@ -112,5 +123,9 @@ class TrackingService : Service() {
 
     fun getTotalDistanceLiveData(): LiveData<Float> {
         return _totalDistance
+    }
+
+    fun getDistanceLiveData(): LiveData<Float> {
+        return _distance
     }
 }
