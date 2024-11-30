@@ -136,10 +136,10 @@ class FirestoreApi {
 //        }
 //    }
 
-    fun getUsersById(userId: Int): Task<DocumentSnapshot> {
+    fun getUsersById(sessionId: String): Task<DocumentSnapshot> {
         val db = FirebaseFirestore.getInstance()
         return db.collection("Users")
-            .document(userId.toString())
+            .document(sessionId)
             .get()  // Mengambil data pengguna berdasarkan userId
     }
 

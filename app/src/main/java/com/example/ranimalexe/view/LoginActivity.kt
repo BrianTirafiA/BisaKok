@@ -13,6 +13,7 @@ import com.example.ranimalexe.R
 import com.google.firebase.auth.FirebaseAuth
 import android.content.Intent
 import android.content.SharedPreferences
+import android.util.Log
 
 
 class LoginActivity : AppCompatActivity() {
@@ -49,33 +50,37 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-
-
-        fun saveUserSession(context: Context) {
-            val currentUser = FirebaseAuth.getInstance().currentUser
-            if (currentUser != null) {
-                val userId = currentUser.uid
-                val sharedPreferences: SharedPreferences =
-                    context.getSharedPreferences("UserSession", Context.MODE_PRIVATE)
-                val editor = sharedPreferences.edit()
-                editor.putString("user_id", userId) // Menyimpan uid
-                editor.apply()
-            }
-        }
-
     }
-    fun loginUser(email: String, password: String) {
-//         Authenticate the user with Firebase
+
+    private fun loginUser(email: String, password: String) {
+        // Authenticate the user with Firebase
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Login successful
                     val user = auth.currentUser
+                    val uid = user?.uid  // Get the UID of the logged-in user
+
+                    Log.d("Login", "User uid : ${uid}")
+
+                    // Save the UID to SharedPreferences
+                    if (uid != null) {
+                        // Get the SharedPreferences instance
+                        val sharedPreferences: SharedPreferences =
+                            getSharedPreferences("user_session", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+
+                        // Save UID to SharedPreferences
+                        editor.putString("user_uid", uid)
+                        editor.apply()  // Save the changes asynchronously
+                    }
+
+                    // Now you can proceed to the next activity
                     val intent = Intent(this, RunningActivity::class.java)
                     startActivity(intent)
-                    finish()  // Close LoginActivity
+                    finish()  // Close the LoginActivity
                 } else {
-                    // If sign in fails, display a message to the user
+                    // If sign-in fails, display a message to the user
                     Toast.makeText(this, "Password incorrect", Toast.LENGTH_SHORT).show()
                 }
             }

@@ -54,9 +54,7 @@ class SignUp : AppCompatActivity() {
             val age = ageEditText.text.toString()
 
 //            // Panggil method untuk mendaftar dengan email dan password
-            
             signUpWithEmail(email, password, username, petName, age)
-
         }
     }
 

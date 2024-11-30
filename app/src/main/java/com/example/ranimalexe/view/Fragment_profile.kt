@@ -1,6 +1,8 @@
 package com.example.ranimalexe.view
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,10 @@ import android.widget.TextView
 import com.example.ranimalexe.Constants
 import com.example.ranimalexe.R
 import com.example.ranimalexe.storage.UserData
+import com.example.ranimalexe.viewmodel.ProfileViewModel
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,6 +40,8 @@ class fragment_profile : Fragment() {
     private lateinit var totalScore: TextView
     private lateinit var age: TextView
     private lateinit var userId: TextView
+
+    private val profileViewModel: ProfileViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,17 +69,48 @@ class fragment_profile : Fragment() {
         age = rootView.findViewById(R.id.lblAge_Result)
         userId = rootView.findViewById(R.id.lblUserID_Result)
 
+        // Retrieve user UID from SharedPreferences
+        val sharedPrefs = requireActivity().getSharedPreferences("user_session", Context.MODE_PRIVATE)
+        val userUid = sharedPrefs.getString("user_uid", null) // Correct way to retrieve a String value from SharedPreferences
+
+        if (userUid != null) {
+            // Fetch user data using the userId from the ViewModel
+            profileViewModel.getUserById(userUid)
+
+            // Observe the LiveData in ViewModel
+            profileViewModel.user.observe(viewLifecycleOwner, Observer { user ->
+                if (user != null) {
+                    // Bind data to UI components when data is successfully fetched
+                    Log.d("Fragment Profile","user uid profile : ${userUid}")
+                    bindData(
+                        user.username,  // Assuming user object has a 'username' property
+                        user.email,     // Assuming user object has an 'email' property
+                        user.totalExp,  // Assuming user object has 'totalExp' property
+                        user.totalScore,// Assuming user object has 'totalScore' property
+                        user.age,       // Assuming user object has 'age' property
+                        user.userId.toString(),
+                        user.username,
+                        user.email,// Assuming user object has 'userId' property
+                    )
+                }
+            })
+        } else {
+            Log.e("fragment_profile", "No user UID found in SharedPreferences.")
+        }
+
         return rootView
     }
 
     // Function to bind data from another class
-    fun bindData(usernameText: String, emailText: String, totalExpValue: Int, totalScoreValue: Int, ageValue: Int, userIdValue: String) {
-        username2.text = UserData.user.username
-        email2.text = UserData.user.email
-        totalExp.text = UserData.user.currentExp.toString()
-        totalScore.text = UserData.user.totalScore.toString()
-        age.text = UserData.user.age.toString()
-        userId.text = UserData.user.userId.toString()
+    fun bindData(username2Text: String, email2Text: String, totalExpValue: Int, totalScoreValue: Int, ageValue: Int, userIdValue: String, usernameText: String, emailText: String) {
+        username2.text = username2Text
+        email2.text = email2Text
+        totalExp.text = totalExpValue.toString()
+        totalScore.text = totalScoreValue.toString()
+        age.text = ageValue.toString()
+        userId.text = userIdValue
+        username.text = usernameText
+        email.text = emailText
     }
 
     companion object {
@@ -85,3 +124,4 @@ class fragment_profile : Fragment() {
             }
     }
 }
+
