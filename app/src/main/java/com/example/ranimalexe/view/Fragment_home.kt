@@ -125,7 +125,7 @@ class fragment_home : Fragment() {
         }
 
         foodRecyclerView = rootView.findViewById(R.id.recyclerView)
-        foodRecyclerView.layoutManager = LinearLayoutManager(context)
+        foodRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         foodAdapter = UsableFoodAdapter(UserData.foodItems.toList()) {
 
