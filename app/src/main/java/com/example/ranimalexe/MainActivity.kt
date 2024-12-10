@@ -3,6 +3,7 @@ package com.example.ranimalexe
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -44,6 +45,12 @@ class MainActivity : AppCompatActivity() {
 //        val intent = Intent(this, TrackerService::class.java)
 //        println("Activating service")
 //        startService(intent)
+    }
+
+    fun openLink(view: android.view.View) {
+        val url = "https://drive.google.com/drive/folders/1qZrEcwUp0yGoBfP-E8vEnYx12GN5Uye3?usp=sharing"
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

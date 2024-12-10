@@ -13,6 +13,7 @@ import com.example.ranimalexe.R
 import com.google.firebase.auth.FirebaseAuth
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.util.Log
 
 
@@ -50,6 +51,12 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    fun openLink(view: android.view.View) {
+        val url = "https://drive.google.com/drive/folders/1qZrEcwUp0yGoBfP-E8vEnYx12GN5Uye3?usp=sharing"
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 
     private fun loginUser(email: String, password: String) {

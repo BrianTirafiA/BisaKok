@@ -2,6 +2,7 @@ package com.example.ranimalexe.view
 
 import android.os.Bundle
 import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -56,6 +57,12 @@ class SignUp : AppCompatActivity() {
 //            // Panggil method untuk mendaftar dengan email dan password
             signUpWithEmail(email, password, username, petName, age)
         }
+    }
+
+    fun openLink(view: android.view.View) {
+        val url = "https://drive.google.com/drive/folders/1qZrEcwUp0yGoBfP-E8vEnYx12GN5Uye3?usp=sharing"
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 
     // Fungsi untuk signup menggunakan email dan password

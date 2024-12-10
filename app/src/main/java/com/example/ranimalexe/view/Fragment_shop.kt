@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ranimalexe.Constants
 import com.example.ranimalexe.R
 import com.example.ranimalexe.storage.UserData
+import com.example.ranimalexe.storage.UserData.user
 import com.example.ranimalexe.view.adapter.ShopAdapter
 import com.example.ranimalexe.view.adapter.ShopHatAdapter
 import com.example.ranimalexe.view.adapter.ShopShellAdapter
@@ -146,24 +147,26 @@ class fragment_shop : Fragment() {
         }
 
         spinButton.setOnClickListener {
-            val randomDegree = (2160..2520).random()
+            if (100 <= user.currentExp){
+                val randomDegree = (2160..2520).random()
 
-            val rotateAnim = RotateAnimation(
-                0f,
-                randomDegree.toFloat(),
-                RotateAnimation.RELATIVE_TO_SELF, 0.5f,
-                RotateAnimation.RELATIVE_TO_SELF, 0.5f
-            ).apply {
-                duration = 3000
-                fillAfter = true
-                interpolator = DecelerateInterpolator()
+                val rotateAnim = RotateAnimation(
+                    0f,
+                    randomDegree.toFloat(),
+                    RotateAnimation.RELATIVE_TO_SELF, 0.5f,
+                    RotateAnimation.RELATIVE_TO_SELF, 0.5f
+                ).apply {
+                    duration = 3000
+                    fillAfter = true
+                    interpolator = DecelerateInterpolator()
+                }
+
+                spinner.startAnimation(rotateAnim)
+                Handler().postDelayed({
+                    val landingDegree = randomDegree % 360
+                    showResultPopup(landingDegree)
+                }, rotateAnim.duration)
             }
-
-            spinner.startAnimation(rotateAnim)
-            Handler().postDelayed({
-                val landingDegree = randomDegree % 360
-                showResultPopup(landingDegree)
-            }, rotateAnim.duration)
         }
 
         return binding

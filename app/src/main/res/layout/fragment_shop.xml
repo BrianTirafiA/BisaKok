@@ -247,7 +247,7 @@
                                 android:id="@+id/spinStatus"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="50 EXP per spin"
+                                android:text="100 EXP per spin"
                                 android:layout_marginBottom="16dp"
                                 android:textColor="#FFFFFF"
                                 android:textSize="16sp"

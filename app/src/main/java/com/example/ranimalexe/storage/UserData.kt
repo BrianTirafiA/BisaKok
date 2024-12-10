@@ -13,9 +13,9 @@ object UserData {
 
     //====================================== Temporary ======================================//
     var foodItems : MutableList<FoodItem> = mutableListOf(
-        FoodItem(0, "Apel", 10, 100, R.drawable.borgir),
-        FoodItem(1, "Nanas", 20, 150, R.drawable.borgir),
-        FoodItem(2, "Melon", 30, 250, R.drawable.borgir)
+        FoodItem(0, "Sosis", 10, 100, R.drawable.sausage),
+        FoodItem(1, "Burger", 20, 150, R.drawable.borgir),
+        FoodItem(2, "Steak", 30, 250, R.drawable.steak)
     )
     var hats : MutableList<Hat> = mutableListOf(
         Hat(0, "Basic Red", R.drawable.default_hat1, "proof of your birth", true),
