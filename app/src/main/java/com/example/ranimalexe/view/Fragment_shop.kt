@@ -87,6 +87,7 @@ class fragment_shop : Fragment() {
             shopAdapter = ShopAdapter(shopItems) { selectedFood ->
                 val message = "Congrats! You got an item!"
                 val builder = AlertDialog.Builder(requireContext())
+                    .setTitle("Bought")
                     .setMessage(message)
                     .setPositiveButton("OK") { dialog, _ ->
                         dialog.dismiss()
@@ -113,20 +114,24 @@ class fragment_shop : Fragment() {
                 onHatSelected = { selectedHat ->
                     val message = "Congrats! You got an item: ${selectedHat.name}"
                     val builder = AlertDialog.Builder(requireContext())
+                        .setTitle("Bought")
                         .setMessage(message)
                         .setPositiveButton("OK") { dialog, _ ->
                             dialog.dismiss()
                         }
+                    builder.setIcon(R.color.commonColor)
                     builder.show()
                 },
                 onUnlockHat = { hatToUnlock ->
                     hatViewModel.unlockHat(hatToUnlock.id)
                     val message = "Congrats! You got an item:${hatToUnlock.name}"
                     val builder = AlertDialog.Builder(requireContext())
+                        .setTitle("Bought")
                         .setMessage(message)
                         .setPositiveButton("OK") { dialog, _ ->
                             dialog.dismiss()
                         }
+                    builder.setIcon(R.color.commonColor)
                     builder.show()
                     hatViewModel.refreshHats()
                 }
@@ -138,10 +143,12 @@ class fragment_shop : Fragment() {
             shellAdapter = ShopShellAdapter(shellItems) { selectedShell ->
                 val message = "Congrats! You got an item!"
                 val builder = AlertDialog.Builder(requireContext())
+                    .setTitle("Bought!!")
                     .setMessage(message)
                     .setPositiveButton("OK") { dialog, _ ->
                         dialog.dismiss()
                     }
+                builder.show()
             }
             recyclerViewShell.adapter = shellAdapter
         }

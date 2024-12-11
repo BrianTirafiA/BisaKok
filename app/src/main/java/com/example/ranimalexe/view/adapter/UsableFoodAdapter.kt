@@ -25,7 +25,7 @@ class UsableFoodAdapter(
             itemImage.setImageResource(ShopCustom.imageResId)
             itemPrice.text = UserData.GetFoodAmount(ShopCustom.id).toString()
             itemView.setOnClickListener {
-                UserData.TryBuyFood(ShopCustom.id)
+                UserData.TryEatFood(ShopCustom.id)
                 onClick(ShopCustom.imageResId)
             }
         }
